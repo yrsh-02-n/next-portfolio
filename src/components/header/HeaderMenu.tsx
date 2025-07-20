@@ -1,19 +1,24 @@
-import { MenuItem } from '../menu/MenuItem'
-import { IMenuItem } from '../menu/menu.types'
+import cn from 'clsx'
 
-export function HeaderMenu({ menu }: { menu: IMenuItem[] }) {
+import { MenuItem } from './nav/MenuItem'
+import { IMenuItem } from './nav/menu.types'
+
+interface IHeaderMenu {
+	menu: IMenuItem[]
+	className?: string
+}
+
+export function HeaderMenu({ menu, className }: IHeaderMenu) {
 	return (
-		<div className='flex items-end justify-end'>
-			<nav>
-				<ul className='flex gap-10'>
-					{menu.map(item => (
-						<MenuItem
-							key={item.link}
-							item={item}
-						/>
-					))}
-				</ul>
-			</nav>
-		</div>
+		<nav className={cn('flex items-end justify-end', className)}>
+			<ul className={cn('flex', className)}>
+				{menu.map(item => (
+					<MenuItem
+						key={item.link}
+						item={item}
+					/>
+				))}
+			</ul>
+		</nav>
 	)
 }

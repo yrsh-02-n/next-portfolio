@@ -24,7 +24,7 @@ export const SocialLinkType = defineType({
 			options: { accept: 'image/svg+xml' } // only svg
 		}),
 		defineField({
-			name: 'Order',
+			name: 'order',
 			type: 'number',
 			initialValue: 0,
 			validation: Rule => Rule.required()

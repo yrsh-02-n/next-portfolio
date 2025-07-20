@@ -1,7 +1,6 @@
 import { Code, PanelsTopLeft } from 'lucide-react'
 
-import { IMenuItem } from '../menu/menu.types'
-
+import { IMenuItem } from './nav/menu.types'
 import { PAGE } from '@/src/config/public-page.config'
 
 export const HEADER_DATA: IMenuItem[] = [
