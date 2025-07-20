@@ -1,5 +1,4 @@
-import { type SchemaTypeDefinition } from 'sanity'
+import { postType } from './postType'
+import { SocialLinkType } from './socialLink'
 
-export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [],
-}
+export const schemaTypes = [SocialLinkType ,postType]
