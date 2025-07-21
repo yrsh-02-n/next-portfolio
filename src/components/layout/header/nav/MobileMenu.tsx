@@ -19,7 +19,7 @@ export function MobileMenu({ className }: Props) {
 		>
 			<HeaderMenu
 				menu={HEADER_DATA}
-				className='flex flex-col items-end gap-6 mt-5'
+				className='relative w-full flex flex-col items-end gap-6 h-full mt-5'
 			/>
 			<SocialsClient className='justify-end' />
 		</div>

@@ -32,7 +32,7 @@ export function SocialsClient({ className }: Props) {
 					rel='noopener noreferrer'
 					className='block'
 				>
-					<span className='flex w-[40px] h-[40px] justify-center p-[.5rem] bg-primary rounded transition-colors hover:bg-accent duration-200'>
+					<span className='flex w-[40px] h-[40px] justify-center p-[.5rem] bg-secondary rounded transition-colors hover:bg-accent duration-200'>
 						<Image
 							src={link.icon}
 							alt={link.title}
