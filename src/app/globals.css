@@ -12,21 +12,103 @@
 	--color-primary: var(--primary);
 	--font-text: var(--font-tektur);
 	--color-accent: var(--accent);
-  --bg-pattern: var(--bg-pattern)
-
-	--breakpoint-4xl: 240rem; /* 3840 px */
+	--bg-pattern: var(--bg-pattern) --breakpoint-4xl: 240rem; /* 3840 px */
 	--breakpoint-2xl: 120rem; /* 1920 px */
 	--breakpoint-xl: 90rem; /* 1440 px */
 	--breakpoint-lg: 64rem; /* 1024 px */
 	--breakpoint-md: 47rem; /* 748 px */
 	--breakpoint-s: 27rem; /* 432 px */
 	--breakpoint-xs: 20rem; /* 320 px */
-}
 
-@layer utilities {
-  .bg-pattern {
-    background-image: var(--bg-pattern);
-  }
+	/* bg animation */
+	--animate-round-big: round-big 10s ease-in-out infinite;
+	@keyframes round-big {
+		0% {
+			width: 40rem;
+			height: 40rem;
+		}
+		50% {
+			width: 45rem;
+			height: 45rem;
+		}
+		100% {
+			width: 40rem;
+			height: 40rem;
+		}
+	}
+
+	--animate-round-small: round-small 10s ease-in-out infinite;
+	@keyframes round-small {
+		0% {
+			width: 40rem;
+			height: 40rem;
+		}
+		50% {
+			width: 44rem;
+			height: 44rem;
+		}
+		100% {
+			width: 40rem;
+			height: 40rem;
+		}
+	}
+
+	--animate-line-first: line-first 10s ease-in-out infinite;
+	@keyframes line-first {
+		0% {
+			right: -40rem;
+			bottom: 0rem;
+			width: 50rem;
+		}
+		50% {
+			right: -32rem;
+			bottom: 0rem;
+			width: 60rem;
+		}
+		100% {
+			right: -40rem;
+			bottom: 0rem;
+			width: 50rem;
+		}
+	}
+
+	--animate-line-second: line-second 7s ease-in-out infinite;
+	@keyframes line-second {
+		0% {
+			right: -50rem;
+			bottom: 0rem;
+			width: 90rem;
+		}
+		50% {
+			right: -44rem;
+			bottom: 7.5rem;
+			width: 93rem;
+		}
+		100% {
+			right: -50rem;
+			bottom: 0rem;
+			width: 90rem;
+		}
+	}
+
+	--animate-line-third: line-third 10s ease-in-out infinite;
+	@keyframes line-third {
+		0% {
+			right: -22rem;
+			bottom: 0rem;
+			width: 50rem;
+		}
+		50% {
+			right: -38rem;
+			bottom: 0rem;
+			width: 60rem;
+		}
+		100% {
+			right: -22rem;
+			bottom: 0rem;
+			width: 50rem;
+		}
+	}
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -35,6 +117,13 @@
 		--text: #e4e6e4;
 	}
 } */
+
+/* Bg dots */
+@layer utilities {
+	.bg-pattern {
+		background-image: var(--bg-pattern);
+	}
+}
 
 body {
 	background: var(--bg);

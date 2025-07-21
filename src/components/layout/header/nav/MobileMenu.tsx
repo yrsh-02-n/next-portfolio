@@ -1,8 +1,9 @@
 import cn from 'clsx'
 
-import { SocialsClient } from '../../socials/SocialsClient'
+
 import { HeaderMenu } from '../HeaderMenu'
 import { HEADER_DATA } from '../header.data'
+import { SocialsClient } from '@/src/components/socials/SocialsClient'
 
 interface Props {
 	className: string
