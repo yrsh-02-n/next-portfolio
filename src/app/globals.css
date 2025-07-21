@@ -3,20 +3,32 @@
 :root {
 	--bg: #e4e6e4;
 	--primary: #1f1f1f;
+	--secondary: #1f1f1f;
 	--accent: #009dff;
 	--bg-pattern: url('../../public/decorations/bg-pattern-light.png');
+}
+
+.dark {
+	--bg: #1f1f1f;
+	--primary: #e4e6e4;
+	--secondary: #747474;
+	--accent: #009dff;
+	--bg-pattern: url('../../public/decorations/bg-pattern-dark.png');
 }
 
 @theme inline {
 	--color-bg: var(--bg);
 	--color-primary: var(--primary);
-	--font-text: var(--font-tektur);
 	--color-accent: var(--accent);
-	--bg-pattern: var(--bg-pattern) --breakpoint-4xl: 240rem; /* 3840 px */
+	--color-secondary: var(--secondary);
+	--font-text: var(--font-tektur);
+	--bg-pattern: var(--bg-pattern);
+
+	--breakpoint-4xl: 240rem; /* 3840 px */
 	--breakpoint-2xl: 120rem; /* 1920 px */
 	--breakpoint-xl: 90rem; /* 1440 px */
 	--breakpoint-lg: 64rem; /* 1024 px */
-	--breakpoint-md: 47rem; /* 748 px */
+	--breakpoint-md: 50rem; /* 748 px */
 	--breakpoint-s: 27rem; /* 432 px */
 	--breakpoint-xs: 20rem; /* 320 px */
 
@@ -110,13 +122,6 @@
 		}
 	}
 }
-
-/* @media (prefers-color-scheme: dark) {
-	:root {
-		--bg: #1f1f1f;
-		--text: #e4e6e4;
-	}
-} */
 
 /* Bg dots */
 @layer utilities {

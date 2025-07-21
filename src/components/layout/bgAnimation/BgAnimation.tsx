@@ -1,3 +1,4 @@
+// by keyframes in global.css
 export function BgAnimation() {
 	return (
 		<div className='absolute inset-0 z-[-1] overflow-hidden'>
