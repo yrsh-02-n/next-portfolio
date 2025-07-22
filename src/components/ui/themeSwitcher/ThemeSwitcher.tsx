@@ -12,6 +12,7 @@ interface Props {
 
 export function ThemeSwitcher({ className }: Props) {
 	const [theme, setTheme] = useState<'light' | 'dark'>('light')
+	const [mounted, setMounted] = useState(false)
 
 	/* read cookie at first render */
 	useEffect(() => {
@@ -23,7 +24,10 @@ export function ThemeSwitcher({ className }: Props) {
 		const initial = cookieValue ?? 'light'
 		setTheme(initial)
 		document.documentElement.classList.toggle('dark', initial === 'dark')
+		setMounted(true)
 	}, [])
+
+	if (!mounted) return null // not render untill get theme from cookie
 
 	const toggle = async () => {
 		const next = theme === 'light' ? 'dark' : 'light'

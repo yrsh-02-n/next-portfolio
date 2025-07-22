@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import { client } from '@/sanity/lib/client'
 
+export const revalidate = 86400
+
 const POSTS_QUERY = `*[
   _type == "post"
   && defined(slug.current)
