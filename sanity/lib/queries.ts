@@ -11,6 +11,18 @@ export async function getSocials() {
       order
     }`,
 		{},
-		{ next: { revalidate: 3600 } } // 1 hour cache
+		{ next: { revalidate: 3600 } } // 1 hour
+	)
+}
+
+export async function getHeroScreenData() {
+	return client.fetch(
+		`*[_type == "heroScreen"][0]{
+      _id,
+      heroScreenTexts[]  | order(order asc){ _key, line},
+      heroScreenLinks[] | order(order asc){ _key, title, url, order }
+    }`,
+		{},
+		{ next: { revalidate: 3600 } }
 	)
 }

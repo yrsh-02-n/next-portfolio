@@ -34,9 +34,9 @@ export default async function RootLayout({
 						<Header />
 						<main className='relative flex flex-1 mt-[73px] w-full'>
 							<Sidebar />
-							<section className='p-10 pl-[7.5rem] w-full max-md:p-5'>
-								<div className='mx-auto min-2xl:max-w-[90rem] max-w-[110rem]'>{children}</div>
-							</section>
+							<div className='p-10 pl-[7.5rem] w-full max-md:p-5'>
+								<div className='flex flex-col gap-20 mx-auto min-2xl:max-w-[90rem] max-w-[110rem]'>{children}</div>
+							</div>
 						</main>
 						<Footer />
 					</div>
