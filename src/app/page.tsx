@@ -2,8 +2,9 @@ import { type SanityDocument } from 'next-sanity'
 import Link from 'next/link'
 
 import { client } from '@/sanity/lib/client'
+import { HeroScreen } from '../components/heroScreen/heroScreen'
 
-export const revalidate = 86400
+// export const revalidate = 86400 // 1 day
 
 const POSTS_QUERY = `*[
   _type == "post"
@@ -17,6 +18,7 @@ export default async function IndexPage() {
 
 	return (
 		<>
+    <HeroScreen />
 			<h1 className='text-4xl font-bold mb-8 font-title'>Заголовок</h1>
 			<ul className='flex flex-col gap-y-4'>
 				{posts.map(post => (

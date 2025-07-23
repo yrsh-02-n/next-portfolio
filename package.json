@@ -22,6 +22,10 @@
     "next-sanity": "^10.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hotkeys-hook": "^5.1.0",
+    "react-type-animation": "^3.2.0",
+    "react-typewriter-hook": "^1.0.2",
+    "react-typing-animator": "^7.0.1",
     "sanity": "^3.99.0",
     "styled-components": "^6.1.19",
     "tw-merge": "^0.0.1-alpha.3"

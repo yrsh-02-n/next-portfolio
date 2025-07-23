@@ -25,7 +25,7 @@ export function Header() {
 	}, [mobileMenuIsOpen])
 
 	return (
-		<header className='flex items-center justify-between fixed w-full md:pr-5 border-b border-primary/40 bg-bg md:bg-bg/70 shrink-0 z-2'>
+		<header className='flex items-center justify-between fixed w-full md:pr-10 border-b border-primary/40 bg-bg md:bg-bg/70 shrink-0 z-2'>
 			<Logo />
 			<HeaderMenu
 				className='max-md:hidden gap-10'
