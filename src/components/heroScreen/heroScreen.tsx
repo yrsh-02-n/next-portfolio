@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { useHotkeys } from 'react-hotkeys-hook'
+import { useEffect, useState } from 'react'
 
+import { HeroScreenImage } from './hero-screen-components/HeroScreenImage'
+import { HeroScreenLink } from './hero-screen-components/HeroScreenLink'
 import { HeroScreenTextItem } from './hero-screen-components/HeroScreenTextItem'
-import { HeroScreenLink } from './hero-screen-components/heroScreenLink'
 import { IHeroScreenData } from './heroScreen.types'
 import { useKeyboardNavigation } from './use-hero-screen/useKeyboardNavigation'
 
@@ -12,7 +12,7 @@ export function HeroScreen() {
 	const [data, setData] = useState<IHeroScreenData>()
 	const [isShowLinks, setIsShowLinks] = useState<boolean>(false)
 
-  // keyboard navigation logic
+	// keyboard navigation logic
 	const { selectedIndex, setSelectedIndex } = useKeyboardNavigation({
 		items: data?.links ?? [],
 		onSelect: index => {
@@ -39,19 +39,15 @@ export function HeroScreen() {
 	if (!data) return null
 
 	return (
-		<div className='flex justify-between gap-20 max-md:flex-col'>
-			<div
-				className={
-					'w-[60%] max-md:w-full text-bg h-[50vh] px-6 py-4 bg-secondary/50 rounded-md shadow-lg'
-				}
-			>
+		// <div className='flex justify-between gap-20 max-md:flex-col'>
+		<div className='grid grid-cols-[75%_auto] gap-10 max-md:flex-col'>
+			<div className='max-md:w-full text-bg h-[50vh] px-6 py-4 bg-secondary/50 rounded-md shadow-lg max-lg:h-[17vh]'>
 				{/* text lines from sanity */}
 				<div className='mb-6 max-md:text-xl'>
 					<HeroScreenTextItem text={data?.text.join('\n > ') ?? ''} />
 				</div>
-
 				{/* links with keyboard control from sanity */}
-				<div className='flex flex-col text-2xl max-md:text-xl max-w-fit'>
+				<div className='flex flex-col text-2xl max-md:text-xl max-md:max-w-fit max-lg:hidden'>
 					{isShowLinks &&
 						data?.links?.map((item, i) => {
 							return (
@@ -70,7 +66,10 @@ export function HeroScreen() {
 						})}
 				</div>
 			</div>
-			<div>img</div>
+
+			<div className='shadow-lg'>
+				<HeroScreenImage />
+			</div>
 		</div>
 	)
 }

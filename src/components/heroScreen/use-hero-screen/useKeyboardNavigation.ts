@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 
 import { IHeroScreenLink } from '../heroScreen.types'
