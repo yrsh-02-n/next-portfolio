@@ -1,6 +1,7 @@
 export interface IHeroScreenLink {
 	title: string
 	url: string
+  shortTitle: string
 	children?: React.ReactNode
   className?: string
   onMouseEnter: () => void

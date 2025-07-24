@@ -28,7 +28,7 @@ export default async function RootLayout({
 	const theme = (await cookies()).get('theme')?.value === 'dark' ? 'dark' : ''
 	return (
 		<html lang='ru-RU'>
-			<body className={`${tektur.variable} antialiased font-text min-h-screen w-full ${theme}`}>
+			<body className={`${tektur.variable} antialiased font-text color-primary min-h-screen w-full ${theme}`}>
 				<Providers>
 					<div className='flex flex-col min-h-screen'>
 						<Header />
