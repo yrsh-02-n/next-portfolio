@@ -15,6 +15,7 @@ export async function getSocials() {
 	)
 }
 
+// hero screen text and buttons
 export async function getHeroScreenData() {
 	return client.fetch(
 		`*[_type == "heroScreen"][0]{
@@ -24,5 +25,44 @@ export async function getHeroScreenData() {
     }`,
 		{},
 		{ next: { revalidate: 3600 } }
+	)
+}
+
+// Last 10 projects in portfolio
+export async function getLatestPortfolioItems() {
+	return client.fetch(
+		`*[_type == "portfolioCase"] | order(_createdAt desc) [0...10] {
+    _id,
+    caseTitle,
+    slug,
+    caseDescription,
+    caseCardImage,
+    }`
+	)
+}
+
+// dev portfolio
+export async function getDevPortfolioItems() {
+	return client.fetch(
+		`*[type == "portfolioCase" && caseCategory == "development"] | order(_createdAt desc) {
+    _id,
+    caseTitle,
+    slug,
+    caseDescription,
+    caseCardImage,  
+    }`
+	)
+}
+
+// design portfolio
+export async function getDesignPortfolioItems() {
+	return client.fetch(
+		`*[type == "portfolioCase" && caseCategory == "design"] | order(_createdAt desc) {
+    _id,
+    caseTitle,
+    slug,
+    caseDescription,
+    caseCardImage,  
+    }`
 	)
 }

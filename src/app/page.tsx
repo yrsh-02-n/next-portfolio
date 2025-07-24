@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { client } from '@/sanity/lib/client'
 import { HeroScreen } from '../components/heroScreen/heroScreen'
+import { Heading } from '../components/heading/Heading'
 
 // export const revalidate = 86400 // 1 day
 
@@ -19,20 +20,8 @@ export default async function IndexPage() {
 	return (
 		<>
     <HeroScreen />
-			<h1 className='text-4xl font-bold mb-8 font-title'>Заголовок</h1>
-			<ul className='flex flex-col gap-y-4'>
-				{posts.map(post => (
-					<li
-						className='hover:underline'
-						key={post._id}
-					>
-						<Link href={`/${post.slug.current}`}>
-							<h2 className='text-xl font-semibold'>{post.title}</h2>
-							<p>{new Date(post.publishedAt).toLocaleDateString()}</p>
-						</Link>
-					</li>
-				))}
-			</ul>
+		{/* Last projects */}
+    <Heading isH1>Последние работы в портфолио</Heading>
 		</>
 	)
 }

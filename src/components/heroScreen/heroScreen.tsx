@@ -51,7 +51,7 @@ export function HeroScreen() {
 					className='h-[50vh] max-lg:h-[26.5vh] max-md:h-[14.5rem] max-s:[h-20rem] max-xs:h-[18rem]'
 				/>
 			) : (
-				<div className='max-md:w-full text-bg h-[50vh] px-6 py-4 bg-secondary shadow-lg max-lg:h-[26.5vh] max-md:h-[14.5rem] max-s:[h-20rem] max-xs:h-[18rem]'>
+				<div className='max-md:w-full text-bg h-[50vh] px-6 py-4 bg-secondary/80 shadow-lg max-lg:h-[26.5vh] max-md:h-[14.5rem] max-s:[h-20rem] max-xs:h-[18rem]'>
 					{/* text lines from sanity */}
 					<div className='mb-6 max-md:text-xl'>
 						<HeroScreenTextItem text={data?.text.join('\n > ') ?? ''} />
