@@ -40,7 +40,7 @@ export function ThemeSwitcher({ className }: Props) {
 		<button
 			onClick={toggle}
 			title='Сменить тему'
-			className='max-md:absolute max-md:bottom-[-32] max-md:left-1.5'
+			className='text-primary max-md:absolute max-md:bottom-[-32] max-md:left-1.5 focus:outline-0 focus:text-accent/50'
 		>
 			{theme === 'light' ? (
 				<Moon className='hover:text-accent transition-colors duration-200' />

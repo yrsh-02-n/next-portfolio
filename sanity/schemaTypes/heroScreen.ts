@@ -1,4 +1,8 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity';
+
+
+
+
 
 export const heroScreenType = defineType({
 	name: 'heroScreen',
@@ -38,6 +42,11 @@ export const heroScreenType = defineType({
 					fields: [
 						defineField({
 							name: 'title',
+							type: 'string',
+							validation: Rule => Rule.required()
+						}),
+						defineField({
+							name: 'shortTitle',
 							type: 'string',
 							validation: Rule => Rule.required()
 						}),

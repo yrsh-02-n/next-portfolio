@@ -1,4 +1,4 @@
-import { House, LucideIcon } from 'lucide-react'
+import { House } from 'lucide-react'
 import Link from 'next/link'
 
 import { PAGE } from '@/src/config/public-page.config'

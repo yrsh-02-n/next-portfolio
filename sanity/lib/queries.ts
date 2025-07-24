@@ -20,7 +20,7 @@ export async function getHeroScreenData() {
 		`*[_type == "heroScreen"][0]{
       _id,
       heroScreenTexts[]  | order(order asc){ _key, line},
-      heroScreenLinks[] | order(order asc){ _key, title, url, order }
+      heroScreenLinks[] | order(order asc){ _key, title, url, order, shortTitle }
     }`,
 		{},
 		{ next: { revalidate: 3600 } }

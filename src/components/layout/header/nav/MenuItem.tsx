@@ -6,7 +6,7 @@ interface Props {
 	item: IMenuItem
 }
 
-export function MenuItem({ item }: Props) {
+export function MenuItem({ item}: Props) {
 	const Icon = item.icon
 
 	return (
@@ -15,7 +15,7 @@ export function MenuItem({ item }: Props) {
 			title={item.title}
 		>
 			<li className='flex gap-2 items-center justify-center max-md:flex-row-reverse'>
-				<span className='text-2xl hover:text-accent transition-colors duration-200'>{item.label}</span>
+				<span className='text-2xl text-primary hover:text-accent transition-colors duration-200'>{item.label}</span>
 				{Icon && <Icon className='text-accent mt-0.5' />}
 			</li>
 		</Link>

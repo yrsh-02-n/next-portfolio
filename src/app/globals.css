@@ -2,22 +2,28 @@
 
 :root {
 	--bg: #e4e6e4;
+	--light: #e4e6e4;
+	--dark: #1f1f1f;
 	--primary: #1f1f1f;
-	--secondary: #1f1f1f;
-	--accent: #009dff;
+	--accent: #00aeff;
+	--secondary: #747474;
 	--bg-pattern: url('../../public/decorations/bg-pattern-light.png');
 }
 
 .dark {
 	--bg: #1f1f1f;
+	--light: #e4e6e4;
+	--dark: #1f1f1f;
 	--primary: #e4e6e4;
 	--secondary: #747474;
-	--accent: #009dff;
+	--accent: #00ffe5;
 	--bg-pattern: url('../../public/decorations/bg-pattern-dark.png');
 }
 
 @theme inline {
 	--color-bg: var(--bg);
+	--color-dark: var(--dark);
+	--color-light: var(--light);
 	--color-primary: var(--primary);
 	--color-accent: var(--accent);
 	--color-secondary: var(--secondary);
@@ -29,8 +35,9 @@
 	--breakpoint-xl: 90rem; /* 1440 px */
 	--breakpoint-lg: 64rem; /* 1024 px */
 	--breakpoint-md: 50rem; /* 748 px */
-	--breakpoint-s: 27rem; /* 432 px */
-	--breakpoint-xs: 20rem; /* 320 px */
+	--breakpoint-s: 30rem; /* 480 px */
+	--breakpoint-xs: 25rem; /* 400 px */
+	--breakpoint-xxs: 24rem; /* 384 px */
 
 	/* bg animation */
 	--animate-round-big: round-big 10s ease-in-out infinite;
@@ -136,16 +143,16 @@
 		2%,
 		64% {
 			transform: translate(2px, 0) skew(0deg);
-      opacity: 0.9;
+			opacity: 0.9;
 		}
 		4%,
 		60% {
 			transform: translate(-2px, 0) skew(0deg);
-      opacity:1;
+			opacity: 1;
 		}
 		62% {
 			transform: translate(0, 0) skew(3deg);
-      opacity: 0.7;
+			opacity: 0.7;
 		}
 	}
 }
@@ -159,7 +166,7 @@
 
 body {
 	background: var(--bg);
-	color: var(--primary);
+	color: var(--text);
 	background-image: var(--bg-pattern);
 }
 
