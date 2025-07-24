@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
+import { SkeletonLoader } from '../ui/skeletonLoader/skeletonLoader'
+
 import { ISocials } from './socials.types'
 
 interface Props {
@@ -32,12 +34,12 @@ export function SocialsClient({ className }: Props) {
 					rel='noopener noreferrer'
 					className='block'
 				>
-					<span className='flex w-[40px] h-[40px] justify-center p-[.5rem] bg-secondary transition-colors hover:bg-accent duration-200'>
+					<span className='flex w-[40px] h-[40px] justify-center bg-secondary transition-colors hover:bg-accent duration-200'>
 						<Image
 							src={link.icon}
 							alt={link.title}
-							width={20}
-							height={20}
+							width={25}
+							height={25}
 						/>
 					</span>
 				</Link>
