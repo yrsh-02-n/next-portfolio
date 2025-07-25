@@ -38,13 +38,12 @@ export function HeroScreen() {
 			setIsShowLinks(true)
 		}, 13400)
 	}, [setIsShowLinks])
-	console.log(data)
 
 	// if (!data) return null
 
 	return (
 		// <div className='flex justify-between gap-20 max-md:flex-col'>
-		<div className='grid grid-cols-[75%_auto] max-xl:grid-cols-[70%_auto] max-lg:grid-cols-1 gap-10 max-lg:gap-5'>
+		<div className='grid grid-cols-[74.5%_auto] max-xl:grid-cols-[70%_auto] max-lg:grid-cols-1 gap-10 max-lg:gap-5'>
 			{!data ? (
 				<SkeletonLoader
 					count={1}

@@ -16,12 +16,12 @@ export function Button({ className, title, href, children, variable = 'main' }: 
 			href={href}
 			title={title}
 			className={cn(
-				'flex items-center gap-3 py-3 px-5 text-xl bg-primary/90 hover:bg-accent w-full text-bg relative transition-colors duration-300 group focus:bg-accent/50 focus:outline-0 group max-lg:text-lg',
-				variable === 'secondary' && 'bg-transparent text-primary border border-primary hover:border-accent hover:text-bg',
+				'flex items-center gap-3 py-3 px-5 text-xl bg-primary/90 hover:bg-accent hover:text-dark w-full text-bg relative transition-colors duration-300 group focus:bg-accent/50 focus:outline-0 group max-lg:text-lg',
+				variable === 'secondary' && 'bg-transparent text-primary border border-primary hover:border-accent hover:text-dark',
 				className
 			)}
 		>
-			<span className={cn('w-[0.85rem] h-[0.85rem] bg-bg transition-colors duration-300', variable === 'secondary' && 'bg-primary group-hover:bg-bg')} />
+			<span className={cn('w-[0.85rem] h-[0.85rem] bg-bg transition-colors duration-300 group-hover:bg-dark', variable === 'secondary' && 'bg-primary group-hover:bg-dark')} />
 			{children}
 		</Link>
 	)

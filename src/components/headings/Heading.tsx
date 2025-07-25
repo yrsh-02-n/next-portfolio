@@ -11,8 +11,8 @@ interface Props {
 
 export function Heading({ className, isH1 = false, children }: Props) {
 	return isH1 ? (
-		<h1 className={cn('text-primary flex items-center text-3xl', className)}>{children}</h1>
+		<h1 className={cn('text-primary flex items-center text-4xlxl mb-[2rem]', className)}>{children}</h1>
 	) : (
-		<h2 className={cn('text-primary flex items-center text-2xl', className)}>{children}</h2>
+		<h2 className={cn('text-primary flex items-center text-3xl mb-[2rem]', className)}>{children}</h2>
 	)
 }
