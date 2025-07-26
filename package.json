@@ -15,8 +15,10 @@
   "dependencies": {
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.99.0",
+    "@uidotdev/usehooks": "^2.4.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.525.0",
     "next": "15.4.1",
     "next-sanity": "^10.0.0",
@@ -28,7 +30,9 @@
     "react-typing-animator": "^7.0.1",
     "sanity": "^3.99.0",
     "styled-components": "^6.1.19",
-    "tw-merge": "^0.0.1-alpha.3"
+    "swiper": "^11.2.10",
+    "tw-merge": "^0.0.1-alpha.3",
+    "usehooks-ts": "^3.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

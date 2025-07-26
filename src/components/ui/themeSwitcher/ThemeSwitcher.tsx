@@ -27,8 +27,6 @@ export function ThemeSwitcher({ className }: Props) {
 		setMounted(true)
 	}, [])
 
-	if (!mounted) return null // not render untill get theme from cookie
-
 	const toggle = async () => {
 		const next = theme === 'light' ? 'dark' : 'light'
 		setTheme(next)

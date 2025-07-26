@@ -15,7 +15,7 @@ export function MenuItem({ item}: Props) {
 			title={item.title}
 		>
 			<li className='flex gap-2 items-center justify-center max-md:flex-row-reverse'>
-				<span className='text-2xl text-primary hover:text-accent transition-colors duration-200'>{item.label}</span>
+				<span className='text-2xl text-primary hover:text-accent transition-colors duration-200 max-xxs:text-xl'>{item.label}</span>
 				{Icon && <Icon className='text-accent mt-0.5' />}
 			</li>
 		</Link>
