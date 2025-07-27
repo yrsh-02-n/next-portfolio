@@ -1,4 +1,12 @@
-import { client } from './client'
+import { defineQuery } from 'next-sanity';
+
+
+
+import { client } from './client';
+
+
+
+
 
 // social links with icon
 export async function getSocials() {
@@ -62,3 +70,16 @@ export async function getDesignPortfolioItems() {
     }`
 	)
 }
+
+// Page
+export const PAGE_QUERY =
+  defineQuery(`*[_type == "page" && slug.current == $slug][0]{
+  ...,
+  content[]{
+    ...,
+    _type == "faqs" => {
+      ...,
+      faqs[]->
+    }
+  }
+}`);
