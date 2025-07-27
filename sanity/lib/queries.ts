@@ -9,9 +9,7 @@ export async function getSocials() {
       "icon": icon.asset->url,
       title,
       order
-    }`,
-		{},
-		{ next: { revalidate: 3600 } } // 1 hour
+    }`
 	)
 }
 
@@ -22,9 +20,7 @@ export async function getHeroScreenData() {
       _id,
       heroScreenTexts[]  | order(order asc){ _key, line},
       heroScreenLinks[] | order(order asc){ _key, title, url, order, shortTitle }
-    }`,
-		{},
-		{ next: { revalidate: 3600 } }
+    }`
 	)
 }
 

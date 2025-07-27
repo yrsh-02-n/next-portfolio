@@ -1,8 +1,12 @@
+'use client'
+
+import { LazyMotion, domAnimation } from 'framer-motion'
 import React, { ReactNode } from 'react'
 
-import { getServerTheme } from '../components/theme/theme-cookie'
-
 export function Providers({ children }: { children: ReactNode }) {
-	const theme = getServerTheme()
-	return <div className={`${theme}`}>{children}</div>
+	return (
+		<div>
+			<LazyMotion features={domAnimation}>{children}</LazyMotion>
+		</div>
+	)
 }

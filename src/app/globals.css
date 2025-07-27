@@ -194,13 +194,13 @@ h6 {
 	height: 100%;
 }
 
-@media (max-width: 748px) {
+@media (max-width: 799px) {
 	.swiper-wrapper {
 		padding-bottom: 3rem !important;
 	}
 }
 
-@media (min-width: 748px) {
+@media (min-width: 799px) {
   .swiper-pagination {
     display: none !important;
   }

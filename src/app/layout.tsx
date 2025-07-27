@@ -28,20 +28,26 @@ export default async function RootLayout({
 	const theme = (await cookies()).get('theme')?.value === 'dark' ? 'dark' : ''
 	return (
 		<html lang='ru-RU'>
-			<body className={`${tektur.variable} antialiased font-text color-primary min-h-screen w-full ${theme}`}>
-				<Providers>
-					<div className='flex flex-col min-h-screen'>
-						<Header />
-						<main className='relative flex flex-1 mt-[73px] w-full'>
-							<Sidebar />
-							<div className='p-10 pl-[7.5rem] w-full max-md:p-5'>
-								<div className='flex flex-col gap-20 mx-auto min-2xl:max-w-[90rem] max-w-[110rem]'>{children}</div>
-							</div>
-						</main>
-						<Footer />
-					</div>
-					<BgAnimation />
-				</Providers>
+			<body
+				className={`${tektur.variable} antialiased font-text color-primary min-h-screen w-full ${theme}`}
+			>
+				<div className={`${theme}`}>
+					<Providers>
+						<div className='flex flex-col min-h-screen'>
+							<Header />
+							<main className='relative flex flex-1 mt-[73px] w-full'>
+								<Sidebar />
+								<div className='p-10 pl-[7.5rem] w-full max-md:p-5'>
+									<div className='flex flex-col gap-20 mx-auto min-2xl:max-w-[90rem] max-w-[110rem]'>
+										{children}
+									</div>
+								</div>
+							</main>
+							<Footer />
+						</div>
+						<BgAnimation />
+					</Providers>
+				</div>
 			</body>
 		</html>
 	)
