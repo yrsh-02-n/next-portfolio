@@ -1,5 +1,4 @@
-import { SocialsClient } from "../../socials/SocialsClient";
-
+import { SocialsClient } from '../../socials/SocialsClient'
 
 export function Sidebar() {
 	return (

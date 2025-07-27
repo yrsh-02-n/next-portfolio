@@ -1,4 +1,12 @@
-import { client } from './client'
+import { defineQuery } from 'next-sanity';
+
+
+
+import { client } from './client';
+
+
+
+
 
 // social links with icon
 export async function getSocials() {
@@ -9,9 +17,7 @@ export async function getSocials() {
       "icon": icon.asset->url,
       title,
       order
-    }`,
-		{},
-		{ next: { revalidate: 3600 } } // 1 hour
+    }`
 	)
 }
 
@@ -22,9 +28,7 @@ export async function getHeroScreenData() {
       _id,
       heroScreenTexts[]  | order(order asc){ _key, line},
       heroScreenLinks[] | order(order asc){ _key, title, url, order, shortTitle }
-    }`,
-		{},
-		{ next: { revalidate: 3600 } }
+    }`
 	)
 }
 
@@ -66,3 +70,16 @@ export async function getDesignPortfolioItems() {
     }`
 	)
 }
+
+// Page
+export const PAGE_QUERY =
+  defineQuery(`*[_type == "page" && slug.current == $slug][0]{
+  ...,
+  content[]{
+    ...,
+    _type == "faqs" => {
+      ...,
+      faqs[]->
+    }
+  }
+}`);
