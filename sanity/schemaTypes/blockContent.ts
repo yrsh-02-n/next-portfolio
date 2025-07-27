@@ -1,4 +1,3 @@
-// src/sanity/schemaTypes/blockContent.ts
 import { defineType } from 'sanity'
 
 export const blockContent = defineType({
