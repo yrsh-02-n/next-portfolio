@@ -1,12 +1,6 @@
-import { defineQuery } from 'next-sanity';
+import { defineQuery } from 'next-sanity'
 
-
-
-import { client } from './client';
-
-
-
-
+import { client } from './client'
 
 // social links with icon
 export async function getSocials() {
@@ -72,14 +66,69 @@ export async function getDesignPortfolioItems() {
 }
 
 // Page
-export const PAGE_QUERY =
-  defineQuery(`*[_type == "page" && slug.current == $slug][0]{
-  ...,
+// export const PORTFOLIO_CASE_PAGE =
+// 	defineQuery(`*[_type == "portfolioCaseType" && slug.current == $slug][0]{
+//   ...,
+//   content[]{
+//    ...,
+//   }
+// }`)
+
+export const PORTFOLIO_CASE_PAGE =
+	defineQuery(`*[_type == "portfolioCase" && slug.current == $slug][0]{
+  _id,
+  caseTitle,
+  caseCategory,
+  slug,
   content[]{
-    ...,
-    _type == "faqs" => {
-      ...,
-      faqs[]->
+    _key,
+    _type,
+    // Для headingBlock
+    title,
+    description,
+    btnText,
+    btnUrl,
+    image{
+      asset->{
+        _id,
+        url,
+        metadata
+      }
     }
   }
-}`);
+}`)
+
+// Для получения всех слагов (для generateStaticParams)
+export const PORTFOLIO_CASE_SLUGS =
+	defineQuery(`*[_type == "portfolioCase" && defined(slug.current)]{
+  slug
+}`)
+
+export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
+	defineQuery(`*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{
+  _id,
+  caseTitle,
+  caseCategory,
+  slug,
+  content[]{
+    _key,
+    _type,
+    // Все поля для разных типов блоков
+    title,
+    description,
+    btnText,
+    btnUrl,
+    image{
+      asset->{
+        _id,
+        url,
+        metadata
+      }
+    }
+  }
+}`)
+
+// Для получения всех слагов по категориям (для generateStaticParams)
+export const PORTFOLIO_CASE_SLUGS_BY_CATEGORY = defineQuery(`*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{
+  slug
+}`)

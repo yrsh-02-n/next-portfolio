@@ -35,6 +35,26 @@ export type BlockContent = Array<{
 	_key: string
 }>
 
+export type HeadingBlock = {
+	_type: 'headingBlock'
+	title?: string
+	description?: BlockContent
+	btnText?: string
+	btnUrl?: string
+	image?: {
+		asset?: {
+			_ref: string
+			_type: 'reference'
+			_weak?: boolean
+			[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+		}
+		media?: unknown
+		hotspot?: SanityImageHotspot
+		crop?: SanityImageCrop
+		_type: 'image'
+	}
+}
+
 export type SplitImage = {
 	_type: 'splitImage'
 	orientation?: 'imageLeft' | 'imageRight'
@@ -53,94 +73,14 @@ export type SplitImage = {
 	}
 }
 
-export type Hero = {
-	_type: 'hero'
-	title?: string
-	text?: BlockContent
-	image?: {
-		asset?: {
-			_ref: string
-			_type: 'reference'
-			_weak?: boolean
-			[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-		}
-		media?: unknown
-		hotspot?: SanityImageHotspot
-		crop?: SanityImageCrop
-		_type: 'image'
-	}
-}
-
-export type Features = {
-	_type: 'features'
-	title?: string
-	features?: Array<{
-		title?: string
-		text?: string
-		_type: 'feature'
-		_key: string
-	}>
-}
-
-export type Faqs = {
-	_type: 'faqs'
-	title?: string
-	faqs?: Array<{
-		_ref: string
-		_type: 'reference'
-		_weak?: boolean
-		_key: string
-		[internalGroqTypeReferenceTo]?: 'faq'
-	}>
-}
-
-export type Faq = {
-	_id: string
-	_type: 'faq'
-	_createdAt: string
-	_updatedAt: string
-	_rev: string
-	title?: string
-	body?: BlockContent
-}
-
 export type PageBuilder = Array<
 	| ({
 			_key: string
-	  } & Hero)
+	  } & HeadingBlock)
 	| ({
 			_key: string
 	  } & SplitImage)
-	| ({
-			_key: string
-	  } & Features)
-	| ({
-			_key: string
-	  } & Faqs)
 >
-
-export type Page = {
-	_id: string
-	_type: 'page'
-	_createdAt: string
-	_updatedAt: string
-	_rev: string
-	title?: string
-	slug?: Slug
-	content?: PageBuilder
-	mainImage?: {
-		asset?: {
-			_ref: string
-			_type: 'reference'
-			_weak?: boolean
-			[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-		}
-		media?: unknown
-		hotspot?: SanityImageHotspot
-		crop?: SanityImageCrop
-		_type: 'image'
-	}
-}
 
 export type PortfolioCase = {
 	_id: string
@@ -149,42 +89,10 @@ export type PortfolioCase = {
 	_updatedAt: string
 	_rev: string
 	caseTitle?: string
-	caseCategory?: 'design' | 'development'
-	slug?: Slug
 	caseDescription?: string
-	caseText?: Array<{
-		textBlock?: string
-		_key: string
-	}>
-	caseImages?: Array<{
-		image?: {
-			asset?: {
-				_ref: string
-				_type: 'reference'
-				_weak?: boolean
-				[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-			}
-			media?: unknown
-			hotspot?: SanityImageHotspot
-			crop?: SanityImageCrop
-			_type: 'image'
-		}
-		_key: string
-	}>
-	caseCardImage?: {
-		asset?: {
-			_ref: string
-			_type: 'reference'
-			_weak?: boolean
-			[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-		}
-		media?: unknown
-		hotspot?: SanityImageHotspot
-		crop?: SanityImageCrop
-		_type: 'image'
-	}
-	caseUrl?: string
-	publishedAt?: string
+	slug?: Slug
+	caseCategory?: 'design' | 'development'
+	content?: PageBuilder
 }
 
 export type HeroScreen = {
@@ -349,13 +257,9 @@ export type SanityAssetSourceData = {
 
 export type AllSanitySchemaTypes =
 	| BlockContent
+	| HeadingBlock
 	| SplitImage
-	| Hero
-	| Features
-	| Faqs
-	| Faq
 	| PageBuilder
-	| Page
 	| PortfolioCase
 	| HeroScreen
 	| SocialLink
@@ -372,95 +276,55 @@ export type AllSanitySchemaTypes =
 	| SanityAssetSourceData
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: ./sanity/lib/queries.ts
-// Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{  ...,  content[]{    ...,    _type == "faqs" => {      ...,      faqs[]->    }  }}
-export type PAGE_QUERYResult = {
+// Variable: PORTFOLIO_CASE_PAGE
+// Query: *[_type == "portfolioCase" && slug.current == $slug][0]{  _id,  caseTitle,  caseCategory,  slug,  content[]{    _key,    _type,    // Для headingBlock    title,    description,    btnText,    btnUrl,    image{      asset->{        _id,        url,        metadata      }    }  }}
+export type PORTFOLIO_CASE_PAGEResult = {
 	_id: string
-	_type: 'page'
-	_createdAt: string
-	_updatedAt: string
-	_rev: string
-	title?: string
-	slug?: Slug
+	caseTitle: string | null
+	caseCategory: 'design' | 'development' | null
+	slug: Slug | null
 	content: Array<
 		| {
 				_key: string
-				_type: 'faqs'
-				title?: string
-				faqs: Array<{
-					_id: string
-					_type: 'faq'
-					_createdAt: string
-					_updatedAt: string
-					_rev: string
-					title?: string
-					body?: BlockContent
-				}> | null
-		  }
-		| {
-				_key: string
-				_type: 'features'
-				title?: string
-				features?: Array<{
-					title?: string
-					text?: string
-					_type: 'feature'
-					_key: string
-				}>
-		  }
-		| {
-				_key: string
-				_type: 'hero'
-				title?: string
-				text?: BlockContent
-				image?: {
-					asset?: {
-						_ref: string
-						_type: 'reference'
-						_weak?: boolean
-						[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-					}
-					media?: unknown
-					hotspot?: SanityImageHotspot
-					crop?: SanityImageCrop
-					_type: 'image'
-				}
+				_type: 'headingBlock'
+				title: string | null
+				description: BlockContent | null
+				btnText: string | null
+				btnUrl: string | null
+				image: {
+					asset: {
+						_id: string
+						url: string | null
+						metadata: SanityImageMetadata | null
+					} | null
+				} | null
 		  }
 		| {
 				_key: string
 				_type: 'splitImage'
-				orientation?: 'imageLeft' | 'imageRight'
-				title?: string
-				image?: {
-					asset?: {
-						_ref: string
-						_type: 'reference'
-						_weak?: boolean
-						[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-					}
-					media?: unknown
-					hotspot?: SanityImageHotspot
-					crop?: SanityImageCrop
-					_type: 'image'
-				}
+				title: string | null
+				description: null
+				btnText: null
+				btnUrl: null
+				image: {
+					asset: {
+						_id: string
+						url: string | null
+						metadata: SanityImageMetadata | null
+					} | null
+				} | null
 		  }
 	> | null
-	mainImage?: {
-		asset?: {
-			_ref: string
-			_type: 'reference'
-			_weak?: boolean
-			[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-		}
-		media?: unknown
-		hotspot?: SanityImageHotspot
-		crop?: SanityImageCrop
-		_type: 'image'
-	}
 } | null
+// Variable: PORTFOLIO_CASE_SLUGS
+// Query: *[_type == "portfolioCase" && defined(slug.current)]{  slug}
+export type PORTFOLIO_CASE_SLUGSResult = Array<{
+	slug: Slug | null
+}>
 
 declare module '@sanity/client' {
 	interface SanityQueries {
-		'*[_type == "page" && slug.current == $slug][0]{\n  ...,\n  content[]{\n    ...,\n    _type == "faqs" => {\n      ...,\n      faqs[]->\n    }\n  }\n}': PAGE_QUERYResult
+		'*[_type == "portfolioCase" && slug.current == $slug][0]{\n  _id,\n  caseTitle,\n  caseCategory,\n  slug,\n  content[]{\n    _key,\n    _type,\n    // \u0414\u043B\u044F headingBlock\n    title,\n    description,\n    btnText,\n    btnUrl,\n    image{\n      asset->{\n        _id,\n        url,\n        metadata\n      }\n    }\n  }\n}': PORTFOLIO_CASE_PAGEResult
+		'*[_type == "portfolioCase" && defined(slug.current)]{\n  slug\n}': PORTFOLIO_CASE_SLUGSResult
 	}
 }

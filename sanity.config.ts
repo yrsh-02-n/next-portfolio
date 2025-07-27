@@ -2,17 +2,13 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 
 import { dataset, projectId } from './sanity/env'
-import { heroScreenType } from './sanity/schemaTypes/heroScreen'
-import { portfolioCaseType } from './sanity/schemaTypes/portfolioCase'
-import { SocialLinkType } from './sanity/schemaTypes/socialLink'
-import { pageType } from './sanity/schemaTypes/pageType'
-import { pageBuilderType } from './sanity/schemaTypes/pageBuilderType'
-import { faqType } from './sanity/schemaTypes/faqType'
-import { faqsType } from './sanity/schemaTypes/blocks/faqsType'
-import { featuresType } from './sanity/schemaTypes/blocks/featuresType'
-import { heroType } from './sanity/schemaTypes/blocks/heroType'
-import { splitImageType } from './sanity/schemaTypes/casePage'
 import { blockContent } from './sanity/schemaTypes/blockContent'
+import { headingBlockType } from './sanity/schemaTypes/blocks/headingBlock'
+import { splitImageType } from './sanity/schemaTypes/casePage'
+import { heroScreenType } from './sanity/schemaTypes/heroScreen'
+import { pageBuilderType } from './sanity/schemaTypes/pageBuilderType'
+import { SocialLinkType } from './sanity/schemaTypes/socialLink'
+import { portfolioCaseType } from './sanity/schemaTypes/portfolioCaseType'
 
 export default defineConfig({
 	projectId: projectId,
@@ -22,15 +18,11 @@ export default defineConfig({
 		types: [
 			SocialLinkType,
 			heroScreenType,
-			portfolioCaseType,
-			pageType,
+      portfolioCaseType,
 			pageBuilderType,
-			faqType,
-			faqsType,
-			featuresType,
-			heroType,
 			splitImageType,
-      blockContent
+			headingBlockType,
+			blockContent
 		]
 	}
 })

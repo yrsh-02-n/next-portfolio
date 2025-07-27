@@ -1,17 +1,27 @@
 'use client'
 
+import { m } from 'framer-motion'
 import { SwiperSlide } from 'swiper/react'
 
 import { Heading } from '../../headings/Heading'
 import { CaseCard } from '../../ui/caseCard/CaseCard'
 import { Slider } from '../../ui/slider/Slider'
 
-// query
-
 export function LastTenCases() {
 	return (
 		<section>
-			<Heading isH1={false} className='mb-[3rem]'>Последние проекты в портфолио</Heading>
+			<m.div
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5 }}
+			>
+				<Heading
+					isH1={false}
+					className='mb-[3rem] text-primary'
+				>
+					Последние проекты в портфолио
+				</Heading>
+			</m.div>
 			<div>
 				<Slider>
 					<SwiperSlide>

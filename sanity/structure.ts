@@ -6,11 +6,9 @@ export const structure: StructureResolver = S =>
 		.title('Content')
 		// .items(S.documentTypeListItems())
 		.items([
-			S.documentTypeListItem('page').title('Pages'),
-			S.documentTypeListItem('faq').title('FAQs'),
+			S.documentTypeListItem('portfolioCaseType').title('portfolioCaseType'),
 			S.divider(),
 			...S.documentTypeListItems().filter(
-				item =>
-					item.getId() && !['post', 'category', 'author', 'page', 'faq'].includes(item.getId()!)
+				item => item.getId() && !['portfolioCaseType'].includes(item.getId()!)
 			)
 		])
