@@ -1,5 +1,4 @@
 import { PortableText } from 'next-sanity'
-import Image from 'next/image'
 
 import { Heading } from '../headings/Heading'
 import { Button } from '../ui/button/Button'

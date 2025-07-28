@@ -33,7 +33,7 @@ export const portfolioCaseType = defineType({
 			options: {
 				list: [
 					{ title: 'Design', value: 'design' },
-					{ title: 'Development', value: 'development' }
+					{ title: 'Dev', value: 'dev' }
 				]
 			},
 			validation: rule => rule.required()
