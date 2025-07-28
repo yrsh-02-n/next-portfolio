@@ -58,7 +58,7 @@ export type HeadingBlock = {
 export type SplitImage = {
 	_type: 'splitImage'
 	orientation?: 'imageLeft' | 'imageRight'
-	title?: string
+	text?: BlockContent
 	image?: {
 		asset?: {
 			_ref: string
@@ -88,10 +88,11 @@ export type PortfolioCase = {
 	_createdAt: string
 	_updatedAt: string
 	_rev: string
+	order?: number
 	caseTitle?: string
 	caseDescription?: string
 	slug?: Slug
-	caseCategory?: 'design' | 'development'
+	caseCategory?: 'design' | 'dev'
 	content?: PageBuilder
 }
 
@@ -276,12 +277,17 @@ export type AllSanitySchemaTypes =
 	| SanityAssetSourceData
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: ./sanity/lib/queries.ts
-// Variable: PORTFOLIO_CASE_PAGE
-// Query: *[_type == "portfolioCase" && slug.current == $slug][0]{  _id,  caseTitle,  caseCategory,  slug,  content[]{    _key,    _type,    // Для headingBlock    title,    description,    btnText,    btnUrl,    image{      asset->{        _id,        url,        metadata      }    }  }}
-export type PORTFOLIO_CASE_PAGEResult = {
+// Variable: PORTFOLIO_CASE_SLUGS
+// Query: *[_type == "portfolioCase" && defined(slug.current)]{  slug}
+export type PORTFOLIO_CASE_SLUGSResult = Array<{
+	slug: Slug | null
+}>
+// Variable: PORTFOLIO_CASE_PAGE_BY_CATEGORY
+// Query: *[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{  _id,  caseTitle,  caseCategory,  slug,  content[]{    _key,    _type,    // Conditional fields based on block type    _type == "headingBlock" => {      title,      description,      btnText,      btnUrl,      image{        asset->{          _id,          url,          metadata,        }      }    },    _type == "splitImage" => {      orientation,      text,      image{        asset->{          _id,          url,          metadata,        }      }    }  }}
+export type PORTFOLIO_CASE_PAGE_BY_CATEGORYResult = {
 	_id: string
 	caseTitle: string | null
-	caseCategory: 'design' | 'development' | null
+	caseCategory: 'design' | 'dev' | null
 	slug: Slug | null
 	content: Array<
 		| {
@@ -302,10 +308,8 @@ export type PORTFOLIO_CASE_PAGEResult = {
 		| {
 				_key: string
 				_type: 'splitImage'
-				title: string | null
-				description: null
-				btnText: null
-				btnUrl: null
+				orientation: 'imageLeft' | 'imageRight' | null
+				text: BlockContent | null
 				image: {
 					asset: {
 						_id: string
@@ -316,15 +320,16 @@ export type PORTFOLIO_CASE_PAGEResult = {
 		  }
 	> | null
 } | null
-// Variable: PORTFOLIO_CASE_SLUGS
-// Query: *[_type == "portfolioCase" && defined(slug.current)]{  slug}
-export type PORTFOLIO_CASE_SLUGSResult = Array<{
+// Variable: PORTFOLIO_CASE_SLUGS_BY_CATEGORY
+// Query: *[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{  slug}
+export type PORTFOLIO_CASE_SLUGS_BY_CATEGORYResult = Array<{
 	slug: Slug | null
 }>
 
 declare module '@sanity/client' {
 	interface SanityQueries {
-		'*[_type == "portfolioCase" && slug.current == $slug][0]{\n  _id,\n  caseTitle,\n  caseCategory,\n  slug,\n  content[]{\n    _key,\n    _type,\n    // \u0414\u043B\u044F headingBlock\n    title,\n    description,\n    btnText,\n    btnUrl,\n    image{\n      asset->{\n        _id,\n        url,\n        metadata\n      }\n    }\n  }\n}': PORTFOLIO_CASE_PAGEResult
 		'*[_type == "portfolioCase" && defined(slug.current)]{\n  slug\n}': PORTFOLIO_CASE_SLUGSResult
+		'*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{\n  _id,\n  caseTitle,\n  caseCategory,\n  slug,\n  content[]{\n    _key,\n    _type,\n    // Conditional fields based on block type\n    _type == "headingBlock" => {\n      title,\n      description,\n      btnText,\n      btnUrl,\n      image{\n        asset->{\n          _id,\n          url,\n          metadata,\n        }\n      }\n    },\n    _type == "splitImage" => {\n      orientation,\n      text,\n      image{\n        asset->{\n          _id,\n          url,\n          metadata,\n        }\n      }\n    }\n  }\n}': PORTFOLIO_CASE_PAGE_BY_CATEGORYResult
+		'*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{\n  slug\n}': PORTFOLIO_CASE_SLUGS_BY_CATEGORYResult
 	}
 }

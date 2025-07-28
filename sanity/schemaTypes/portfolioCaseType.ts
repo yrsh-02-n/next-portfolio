@@ -7,6 +7,11 @@ export const portfolioCaseType = defineType({
 	type: 'document',
 	icon: DocumentIcon,
 	fields: [
+		{
+			name: 'order',
+			title: 'Order',
+			type: 'number'
+		},
 		defineField({
 			name: 'caseTitle',
 			title: 'Case title',
@@ -33,7 +38,7 @@ export const portfolioCaseType = defineType({
 			options: {
 				list: [
 					{ title: 'Design', value: 'design' },
-					{ title: 'Development', value: 'development' }
+					{ title: 'Dev', value: 'dev' }
 				]
 			},
 			validation: rule => rule.required()
@@ -45,7 +50,7 @@ export const portfolioCaseType = defineType({
 	],
 	preview: {
 		select: {
-			title: 'title',
+			title: 'caseTitle',
 			subtitle: 'slug.current'
 		}
 	}

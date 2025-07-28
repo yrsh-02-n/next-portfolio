@@ -39,65 +39,6 @@ export async function getLatestPortfolioItems() {
 	)
 }
 
-// dev portfolio
-export async function getDevPortfolioItems() {
-	return client.fetch(
-		`*[type == "portfolioCase" && caseCategory == "development"] | order(_createdAt desc) {
-    _id,
-    caseTitle,
-    slug,
-    caseDescription,
-    caseCardImage,  
-    }`
-	)
-}
-
-// design portfolio
-export async function getDesignPortfolioItems() {
-	return client.fetch(
-		`*[type == "portfolioCase" && caseCategory == "design"] | order(_createdAt desc) {
-    _id,
-    caseTitle,
-    slug,
-    caseDescription,
-    caseCardImage,  
-    }`
-	)
-}
-
-// Page
-// export const PORTFOLIO_CASE_PAGE =
-// 	defineQuery(`*[_type == "portfolioCaseType" && slug.current == $slug][0]{
-//   ...,
-//   content[]{
-//    ...,
-//   }
-// }`)
-
-export const PORTFOLIO_CASE_PAGE =
-	defineQuery(`*[_type == "portfolioCase" && slug.current == $slug][0]{
-  _id,
-  caseTitle,
-  caseCategory,
-  slug,
-  content[]{
-    _key,
-    _type,
-    // Для headingBlock
-    title,
-    description,
-    btnText,
-    btnUrl,
-    image{
-      asset->{
-        _id,
-        url,
-        metadata
-      }
-    }
-  }
-}`)
-
 // Для получения всех слагов (для generateStaticParams)
 export const PORTFOLIO_CASE_SLUGS =
 	defineQuery(`*[_type == "portfolioCase" && defined(slug.current)]{
@@ -113,22 +54,36 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
   content[]{
     _key,
     _type,
-    // Все поля для разных типов блоков
-    title,
-    description,
-    btnText,
-    btnUrl,
-    image{
-      asset->{
-        _id,
-        url,
-        metadata
+    // Conditional fields based on block type
+    _type == "headingBlock" => {
+      title,
+      description,
+      btnText,
+      btnUrl,
+      image{
+        asset->{
+          _id,
+          url,
+          metadata,
+        }
+      }
+    },
+    _type == "splitImage" => {
+      orientation,
+      text,
+      image{
+        asset->{
+          _id,
+          url,
+          metadata,
+        }
       }
     }
   }
 }`)
 
-// Для получения всех слагов по категориям (для generateStaticParams)
-export const PORTFOLIO_CASE_SLUGS_BY_CATEGORY = defineQuery(`*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{
+// All slugs by category
+export const PORTFOLIO_CASE_SLUGS_BY_CATEGORY =
+	defineQuery(`*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{
   slug
 }`)

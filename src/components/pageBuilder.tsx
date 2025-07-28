@@ -1,9 +1,9 @@
 import { HeadingBlock } from './blocks/HeadingBlock'
 import { SplitImage } from './blocks/SplitImage'
-import { PORTFOLIO_CASE_PAGEResult } from '@/sanity.types'
+import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
 
 type PageBuilderProps = {
-	content: NonNullable<PORTFOLIO_CASE_PAGEResult>['content']
+	content: NonNullable<PORTFOLIO_CASE_PAGE_BY_CATEGORYResult>['content']
 }
 
 export function PageBuilder({ content }: PageBuilderProps) {
