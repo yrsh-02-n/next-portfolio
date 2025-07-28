@@ -14,7 +14,7 @@ type HeadingBlocksProps = Extract<
 
 export function HeadingBlock({ title, description, btnText, btnUrl, image }: HeadingBlocksProps) {
 	return (
-		<section className='relative mb-[5rem]'>
+		<section className='relative mb-[3rem]'>
 			<div>
 				<div className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem]'>
 					<div className='absolute inset-0 h-auto saturate-0'>

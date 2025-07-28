@@ -1,4 +1,5 @@
 import { HeadingBlock } from './blocks/HeadingBlock'
+import { OneImageBlock } from './blocks/OneImageBlock'
 import { SplitImage } from './blocks/SplitImage'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
 
@@ -25,6 +26,13 @@ export function PageBuilder({ content }: PageBuilderProps) {
 					case 'splitImage':
 						return (
 							<SplitImage
+								key={block._key}
+								{...block}
+							/>
+						)
+					case 'caseOneImage':
+						return (
+							<OneImageBlock
 								key={block._key}
 								{...block}
 							/>

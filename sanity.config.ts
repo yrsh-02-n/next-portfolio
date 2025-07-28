@@ -10,6 +10,7 @@ import { pageBuilderType } from './sanity/schemaTypes/pageBuilderType'
 import { SocialLinkType } from './sanity/schemaTypes/socialLink'
 import { portfolioCaseType } from './sanity/schemaTypes/portfolioCaseType'
 import { splitImageType } from './sanity/schemaTypes/blocks/splitImageType'
+import { oneImageBlockType } from './sanity/schemaTypes/blocks/oneImageBlock'
 
 export default defineConfig({
 	projectId: projectId,
@@ -23,7 +24,8 @@ export default defineConfig({
 			pageBuilderType,
       splitImageType,
 			headingBlockType,
-			blockContent
+			blockContent,
+      oneImageBlockType
 		]
 	}
 })

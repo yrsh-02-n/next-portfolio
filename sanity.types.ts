@@ -16,6 +16,23 @@ import '@sanity/client'
  */
 
 // Source: schema.json
+export type CaseOneImage = {
+	_type: 'caseOneImage'
+	image?: {
+		asset?: {
+			_ref: string
+			_type: 'reference'
+			_weak?: boolean
+			[internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+		}
+		media?: unknown
+		hotspot?: SanityImageHotspot
+		crop?: SanityImageCrop
+		_type: 'image'
+	}
+	alt?: string
+}
+
 export type BlockContent = Array<{
 	children?: Array<{
 		marks?: Array<string>
@@ -80,6 +97,9 @@ export type PageBuilder = Array<
 	| ({
 			_key: string
 	  } & SplitImage)
+	| ({
+			_key: string
+	  } & CaseOneImage)
 >
 
 export type PortfolioCase = {
@@ -257,6 +277,7 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+	| CaseOneImage
 	| BlockContent
 	| HeadingBlock
 	| SplitImage
@@ -283,13 +304,25 @@ export type PORTFOLIO_CASE_SLUGSResult = Array<{
 	slug: Slug | null
 }>
 // Variable: PORTFOLIO_CASE_PAGE_BY_CATEGORY
-// Query: *[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{  _id,  caseTitle,  caseCategory,  slug,  content[]{    _key,    _type,    // Conditional fields based on block type    _type == "headingBlock" => {      title,      description,      btnText,      btnUrl,      image{        asset->{          _id,          url,          metadata,        }      }    },    _type == "splitImage" => {      orientation,      text,      image{        asset->{          _id,          url,          metadata,        }      }    }  }}
+// Query: *[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{  _id,  caseTitle,  caseCategory,  slug,  content[]{    _key,    _type,    // Conditional fields based on block type    _type == "headingBlock" => {      title,      description,      btnText,      btnUrl,      image{        asset->{          _id,          url,          metadata,        }      }    },    _type == "splitImage" => {      orientation,      text,      image{        asset->{          _id,          url,          metadata,        }      }    },    _type == "caseOneImage" => {      image{        asset->{          _id,          url,          metadata,        }      },      alt    }  }}
 export type PORTFOLIO_CASE_PAGE_BY_CATEGORYResult = {
 	_id: string
 	caseTitle: string | null
 	caseCategory: 'design' | 'dev' | null
 	slug: Slug | null
 	content: Array<
+		| {
+				_key: string
+				_type: 'caseOneImage'
+				image: {
+					asset: {
+						_id: string
+						url: string | null
+						metadata: SanityImageMetadata | null
+					} | null
+				} | null
+				alt: string | null
+		  }
 		| {
 				_key: string
 				_type: 'headingBlock'
@@ -329,7 +362,7 @@ export type PORTFOLIO_CASE_SLUGS_BY_CATEGORYResult = Array<{
 declare module '@sanity/client' {
 	interface SanityQueries {
 		'*[_type == "portfolioCase" && defined(slug.current)]{\n  slug\n}': PORTFOLIO_CASE_SLUGSResult
-		'*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{\n  _id,\n  caseTitle,\n  caseCategory,\n  slug,\n  content[]{\n    _key,\n    _type,\n    // Conditional fields based on block type\n    _type == "headingBlock" => {\n      title,\n      description,\n      btnText,\n      btnUrl,\n      image{\n        asset->{\n          _id,\n          url,\n          metadata,\n        }\n      }\n    },\n    _type == "splitImage" => {\n      orientation,\n      text,\n      image{\n        asset->{\n          _id,\n          url,\n          metadata,\n        }\n      }\n    }\n  }\n}': PORTFOLIO_CASE_PAGE_BY_CATEGORYResult
+		'*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{\n  _id,\n  caseTitle,\n  caseCategory,\n  slug,\n  content[]{\n    _key,\n    _type,\n    // Conditional fields based on block type\n    _type == "headingBlock" => {\n      title,\n      description,\n      btnText,\n      btnUrl,\n      image{\n        asset->{\n          _id,\n          url,\n          metadata,\n        }\n      }\n    },\n    _type == "splitImage" => {\n      orientation,\n      text,\n      image{\n        asset->{\n          _id,\n          url,\n          metadata,\n        }\n      }\n    },\n    _type == "caseOneImage" => {\n      image{\n        asset->{\n          _id,\n          url,\n          metadata,\n        }\n      },\n      alt\n    }\n  }\n}': PORTFOLIO_CASE_PAGE_BY_CATEGORYResult
 		'*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{\n  slug\n}': PORTFOLIO_CASE_SLUGS_BY_CATEGORYResult
 	}
 }

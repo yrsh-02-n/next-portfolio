@@ -78,6 +78,16 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
           metadata,
         }
       }
+    },
+    _type == "caseOneImage" => {
+      image{
+        asset->{
+          _id,
+          url,
+          metadata,
+        }
+      },
+      alt
     }
   }
 }`)
