@@ -4,12 +4,12 @@ import Image from 'next/image'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
 import { urlFor } from '@/sanity/lib/image'
 
-type SplitImageProps = Extract<
+type OneImageBlockProps = Extract<
 	NonNullable<NonNullable<PORTFOLIO_CASE_PAGE_BY_CATEGORYResult>['content']>[number],
 	{ _type: 'caseOneImage' }
 >
 
-export function OneImageBlock({ image, alt }: SplitImageProps) {
+export function OneImageBlock({ image, alt }: OneImageBlockProps) {
 	return (
 		<div className='relative w-full'>
 			{image?.asset?.url ? (

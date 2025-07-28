@@ -6,6 +6,8 @@ export const pageBuilderType = defineType({
 	of: [
 		defineArrayMember({ type: 'headingBlock' }),
 		defineArrayMember({ type: 'splitImage' }),
-		defineArrayMember({ type: 'caseOneImage' })
+		defineArrayMember({ type: 'caseOneImage' }),
+		defineArrayMember({ type: 'multipleCaseImages' }),
+		defineArrayMember({ type: 'textOnlyBlock' })
 	]
 })

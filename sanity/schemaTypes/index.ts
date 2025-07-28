@@ -1,7 +1,9 @@
 import { blockContent } from './blockContent'
 import { headingBlockType } from './blocks/headingBlock'
+import { imagesBlockType } from './blocks/imagesBlock'
 import { oneImageBlockType } from './blocks/oneImageBlock'
 import { splitImageType } from './blocks/splitImageType'
+import { textOnlyBlock } from './blocks/textOnlyBlock'
 import { heroScreenType } from './heroScreen'
 import { pageBuilderType } from './pageBuilderType'
 import { portfolioCaseType } from './portfolioCaseType'
@@ -15,5 +17,7 @@ export const schemaTypes = [
 	splitImageType,
 	headingBlockType,
 	blockContent,
-	oneImageBlockType
+	oneImageBlockType,
+	imagesBlockType,
+	textOnlyBlock
 ]

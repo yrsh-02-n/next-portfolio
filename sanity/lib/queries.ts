@@ -1,6 +1,12 @@
-import { defineQuery } from 'next-sanity'
+import { defineQuery } from 'next-sanity';
 
-import { client } from './client'
+
+
+import { client } from './client';
+
+
+
+
 
 // social links with icon
 export async function getSocials() {
@@ -64,7 +70,7 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
         asset->{
           _id,
           url,
-          metadata,
+          metadata
         }
       }
     },
@@ -75,7 +81,7 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
         asset->{
           _id,
           url,
-          metadata,
+          metadata
         }
       }
     },
@@ -84,11 +90,24 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
         asset->{
           _id,
           url,
-          metadata,
+          metadata
         }
       },
       alt
-    }
+    },
+    _type == "multipleCaseImages" => {
+      images[]{
+        asset->{
+          _id,
+          url,
+          metadata
+        }
+      }
+    },
+    _type == "textOnlyBlock" => {
+        text
+      }
+    
   }
 }`)
 

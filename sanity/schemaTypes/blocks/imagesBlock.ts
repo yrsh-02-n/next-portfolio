@@ -1,10 +1,25 @@
-import { defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const imagesBlockType = defineType({
-	name: 'caseImages',
+	name: 'multipleCaseImages',
 	title: 'Case images',
-	type: 'array',
-  of: [
-
-  ]
+	type: 'object',
+	fields: [
+		defineField({
+			name: 'images',
+			title: 'Images',
+			type: 'array',
+			of: [
+				{
+					type: 'image'
+				}
+			]
+		})
+	],
+	preview: {
+		select: {
+			images: 'images',
+			layout: 'layout'
+		}
+	}
 })

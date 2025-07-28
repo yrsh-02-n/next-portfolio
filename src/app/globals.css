@@ -188,6 +188,14 @@ h6 {
 	text-wrap: balance;
 }
 
+ul {
+	padding-left: 13px;
+}
+
+li {
+	list-style: square;
+}
+
 /* Swiper slider */
 .swiper {
 	width: 100%;
@@ -201,9 +209,9 @@ h6 {
 }
 
 @media (min-width: 799px) {
-  .swiper-pagination {
-    display: none !important;
-  }
+	.swiper-pagination {
+		display: none !important;
+	}
 }
 
 .swiper-slide {
@@ -225,11 +233,9 @@ h6 {
 }
 
 .swiper-pagination-bullet {
-  background: var(--primary) !important;
+	background: var(--primary) !important;
 }
 
 .swiper-pagination-bullet-active {
-  background: var(--accent) !important;
+	background: var(--accent) !important;
 }
-
-
