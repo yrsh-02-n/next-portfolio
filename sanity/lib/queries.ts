@@ -113,7 +113,7 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
   content[]{
     _key,
     _type,
-    // Все поля для разных типов блоков
+    // All fields of blocks
     title,
     description,
     btnText,
@@ -128,7 +128,7 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
   }
 }`)
 
-// Для получения всех слагов по категориям (для generateStaticParams)
+// All slugs by category
 export const PORTFOLIO_CASE_SLUGS_BY_CATEGORY = defineQuery(`*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{
   slug
 }`)
