@@ -16,14 +16,14 @@ export function HeadingBlock({ title, description, btnText, btnUrl, image }: Hea
 	return (
 		<section className='relative mb-[5rem]'>
 			<div>
-				<div className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem] bg-no-repeat bg-cover bg-center'>
+				<div className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem]'>
 					<div className='absolute inset-0 h-auto saturate-0'>
 						{image && (
 							<Image
 								alt={title as string}
-								src={urlFor(image).width(1600).height(800).url()}
+								src={urlFor(image).width(1538).height(244).url()}
 								fill
-								className='object-cover'
+								className='object-cover aspect-[16/9] object-top-right'
 							/>
 						)}
 					</div>
@@ -47,7 +47,7 @@ export function HeadingBlock({ title, description, btnText, btnUrl, image }: Hea
 								variable='main'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='lg:w-[20rem] w-full'
+								className='sm:w-[20rem] w-full'
 							>
 								{btnText}
 							</Button>

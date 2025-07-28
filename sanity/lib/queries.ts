@@ -45,31 +45,6 @@ export const PORTFOLIO_CASE_SLUGS =
   slug
 }`)
 
-// export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
-// 	defineQuery(`*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{
-//   _id,
-//   caseTitle,
-//   caseCategory,
-//   slug,
-//   content[]{
-//     _key,
-//     _type,
-//     // All fields of blocks
-//     title,
-//     description,
-//     btnText,
-//     btnUrl,
-//     orientation,
-//     image{
-//       asset->{
-//         _id,
-//         url,
-//         metadata,
-//       }
-//     }
-//   }
-// }`)
-
 export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
 	defineQuery(`*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{
   _id,
