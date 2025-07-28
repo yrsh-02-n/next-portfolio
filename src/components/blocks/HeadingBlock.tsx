@@ -1,4 +1,5 @@
 import { PortableText } from 'next-sanity'
+import Image from 'next/image'
 
 import { Heading } from '../headings/Heading'
 import { Button } from '../ui/button/Button'
@@ -12,16 +13,22 @@ type HeadingBlocksProps = Extract<
 >
 
 export function HeadingBlock({ title, description, btnText, btnUrl, image }: HeadingBlocksProps) {
-	const bgUrl = urlFor(image).width(1600).height(800).url()
-
 	return (
 		<section className='relative'>
 			<div>
-				<div
-					className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem] bg-no-repeat bg-cover bg-center'
-					style={{ backgroundImage: `url(${bgUrl})` }}
-				>
-          <div className="absolute inset-0 bg-secondary/90 z-1"></div>
+				<div className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem] bg-no-repeat bg-cover bg-center'>
+					<div className='absolute inset-0 h-auto saturate-0'>
+						{image && (
+							<Image
+								alt={title as string}
+								src={urlFor(image).width(1600).height(800).url()}
+								fill
+								className='object-cover'
+							/>
+						)}
+					</div>
+
+					<div className='absolute inset-0 bg-secondary/90 z-1'></div>
 					<div className='relative flex flex-col w-full lg:w-[70%] z-3'>
 						{title ? (
 							<Heading

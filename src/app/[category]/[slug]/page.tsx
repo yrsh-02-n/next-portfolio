@@ -1,7 +1,11 @@
+import { Suspense } from 'react'
+
 import { client } from '@/sanity/lib/client'
 import { sanityFetch } from '@/sanity/lib/live'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORY } from '@/sanity/lib/queries'
 import { PageBuilder } from '@/src/components/pageBuilder'
+import { SkeletonLoader } from '@/src/components/ui/skeletonLoader/skeletonLoader'
+import { notFound } from 'next/navigation'
 
 // SSG
 export async function generateStaticParams() {
@@ -62,8 +66,19 @@ export default async function Page({
 
 	// check case exists
 	if (!page || page.caseCategory !== resolvedParams.category) {
-		return null // 404
+		notFound() // Call 404
 	}
 
-	return page?.content ? <PageBuilder content={page.content} /> : null
+	return (
+		<Suspense
+			fallback={
+				<SkeletonLoader
+					count={1}
+					className='flex gap-[5rem] w-full h-[20rem]'
+				/>
+			}
+		>
+			{page?.content ? <PageBuilder content={page.content} /> : null}
+		</Suspense>
+	)
 }
