@@ -4,11 +4,12 @@ import { structureTool } from 'sanity/structure'
 import { dataset, projectId } from './sanity/env'
 import { blockContent } from './sanity/schemaTypes/blockContent'
 import { headingBlockType } from './sanity/schemaTypes/blocks/headingBlock'
-import { splitImageType } from './sanity/schemaTypes/casePage'
+
 import { heroScreenType } from './sanity/schemaTypes/heroScreen'
 import { pageBuilderType } from './sanity/schemaTypes/pageBuilderType'
 import { SocialLinkType } from './sanity/schemaTypes/socialLink'
 import { portfolioCaseType } from './sanity/schemaTypes/portfolioCaseType'
+import { splitImageType } from './sanity/schemaTypes/blocks/splitImageType'
 
 export default defineConfig({
 	projectId: projectId,
@@ -20,7 +21,7 @@ export default defineConfig({
 			heroScreenType,
       portfolioCaseType,
 			pageBuilderType,
-			splitImageType,
+      splitImageType,
 			headingBlockType,
 			blockContent
 		]

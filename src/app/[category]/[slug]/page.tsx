@@ -1,11 +1,12 @@
+import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 
 import { client } from '@/sanity/lib/client'
 import { sanityFetch } from '@/sanity/lib/live'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORY } from '@/sanity/lib/queries'
 import { PageBuilder } from '@/src/components/pageBuilder'
+import { Breadcrumbs } from '@/src/components/ui/breadcrumbs/Breadcrumbs'
 import { SkeletonLoader } from '@/src/components/ui/skeletonLoader/skeletonLoader'
-import { notFound } from 'next/navigation'
 
 // SSG
 export async function generateStaticParams() {
@@ -69,6 +70,19 @@ export default async function Page({
 		notFound() // Call 404
 	}
 
+	// Формируем хлебные крошки
+	const breadcrumbs = [
+		{ label: 'Главная', href: '/' },
+		{
+			label:
+				resolvedParams.category === 'design'
+					? 'Портфолио: веб-дизайн'
+					: 'Портфолио: frontend-разработка',
+			href: `/${resolvedParams.category}`
+		},
+		{ label: page.caseTitle, isCurrent: true }
+	]
+
 	return (
 		<Suspense
 			fallback={
@@ -78,6 +92,7 @@ export default async function Page({
 				/>
 			}
 		>
+			<Breadcrumbs items={breadcrumbs} className='mb-[2rem]' />
 			{page?.content ? <PageBuilder content={page.content} /> : null}
 		</Suspense>
 	)

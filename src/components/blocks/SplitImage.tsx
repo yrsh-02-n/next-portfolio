@@ -1,37 +1,30 @@
-import { stegaClean } from 'next-sanity'
+import { PortableText, stegaClean } from 'next-sanity'
 import Image from 'next/image'
 
+import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
 import { urlFor } from '@/sanity/lib/image'
-import { PAGE_QUERYResult } from '@/sanity.types'
-
 
 type SplitImageProps = Extract<
-	NonNullable<NonNullable<PAGE_QUERYResult>['content']>[number],
+	NonNullable<NonNullable<PORTFOLIO_CASE_PAGE_BY_CATEGORYResult>['content']>[number],
 	{ _type: 'splitImage' }
 >
 
-export function SplitImage({ title, image, orientation }: SplitImageProps) {
+export function SplitImage({ text, image, orientation }: SplitImageProps) {
 	return (
 		<section
-			className="container mx-auto flex gap-8 py-16 data-[orientation='imageRight']:flex-row-reverse"
+			className="flex gap-8 data-[orientation='imageRight']:flex-row-reverse"
 			data-orientation={stegaClean(orientation) || 'imageLeft'}
 		>
 			{image ? (
 				<Image
-					className='rounded-xl w-2/3 h-auto'
-					src={urlFor(image).width(800).height(600).url()}
-					width={800}
-					height={600}
+					className='w-1/3'
+					src={urlFor(image).width(400).height(300).url()}
+					width={400}
+					height={300}
 					alt=''
 				/>
 			) : null}
-			<div className='w-1/3 flex items-center'>
-				{title ? (
-					<h2 className='text-3xl mx-auto md:text-5xl lg:text-8xl font-light text-pink-500 text-pretty max-w-3xl'>
-						{title}
-					</h2>
-				) : null}
-			</div>
+			<div className='w-2/3 flex items-center'>{text ? <PortableText value={text} /> : null}</div>
 		</section>
 	)
 }

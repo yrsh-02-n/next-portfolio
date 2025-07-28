@@ -4,17 +4,17 @@ import Image from 'next/image'
 import { Heading } from '../headings/Heading'
 import { Button } from '../ui/button/Button'
 
-import { PORTFOLIO_CASE_PAGEResult } from '@/sanity.types'
+import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
 import { urlFor } from '@/sanity/lib/image'
 
 type HeadingBlocksProps = Extract<
-	NonNullable<NonNullable<PORTFOLIO_CASE_PAGEResult>['content']>[number],
+	NonNullable<NonNullable<PORTFOLIO_CASE_PAGE_BY_CATEGORYResult>['content']>[number],
 	{ _type: 'headingBlock' }
 >
 
 export function HeadingBlock({ title, description, btnText, btnUrl, image }: HeadingBlocksProps) {
 	return (
-		<section className='relative'>
+		<section className='relative mb-[5rem]'>
 			<div>
 				<div className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem] bg-no-repeat bg-cover bg-center'>
 					<div className='absolute inset-0 h-auto saturate-0'>

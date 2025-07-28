@@ -322,10 +322,11 @@
           },
           "optional": true
         },
-        "title": {
+        "text": {
           "type": "objectAttribute",
           "value": {
-            "type": "string"
+            "type": "inline",
+            "name": "blockContent"
           },
           "optional": true
         },
@@ -478,6 +479,13 @@
           "type": "string"
         }
       },
+      "order": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
       "caseTitle": {
         "type": "objectAttribute",
         "value": {
@@ -511,7 +519,7 @@
             },
             {
               "type": "string",
-              "value": "development"
+              "value": "dev"
             }
           ]
         },
