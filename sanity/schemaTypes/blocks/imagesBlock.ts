@@ -18,8 +18,7 @@ export const imagesBlockType = defineType({
 	],
 	preview: {
 		select: {
-			images: 'images',
-			layout: 'layout'
+			images: 'images'
 		}
 	}
 })

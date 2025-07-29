@@ -70,7 +70,7 @@ export default async function Page({
 		notFound() // Call 404
 	}
 
-	// Формируем хлебные крошки
+	// breadcrumbs
 	const breadcrumbs = [
 		{ label: 'Главная', href: '/' },
 		{
@@ -80,7 +80,7 @@ export default async function Page({
 					: 'Портфолио: frontend-разработка',
 			href: `/${resolvedParams.category}`
 		},
-		{ label: page.caseTitle, isCurrent: true }
+		{ label: page.caseTitle || 'Неивзестный путь', isCurrent: true }
 	]
 
 	return (
@@ -92,7 +92,10 @@ export default async function Page({
 				/>
 			}
 		>
-			<Breadcrumbs items={breadcrumbs} className='mb-[2rem]' />
+			<Breadcrumbs
+				items={breadcrumbs}
+				className='mb-[2rem]'
+			/>
 			{page?.content ? <PageBuilder content={page.content} /> : null}
 		</Suspense>
 	)

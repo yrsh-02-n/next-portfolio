@@ -1,12 +1,6 @@
-import { defineQuery } from 'next-sanity';
+import { defineQuery } from 'next-sanity'
 
-
-
-import { client } from './client';
-
-
-
-
+import { client } from './client'
 
 // social links with icon
 export async function getSocials() {
@@ -32,31 +26,15 @@ export async function getHeroScreenData() {
 	)
 }
 
-// Last 10 projects in portfolio
-export async function getLatestPortfolioItems() {
-	return client.fetch(
-		`*[_type == "portfolioCase"] | order(_createdAt desc) [0...10] {
-    _id,
-    caseTitle,
-    slug,
-    caseDescription,
-    caseCardImage,
-    }`
-	)
-}
-
-// Для получения всех слагов (для generateStaticParams)
-export const PORTFOLIO_CASE_SLUGS =
-	defineQuery(`*[_type == "portfolioCase" && defined(slug.current)]{
-  slug
-}`)
-
 export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
 	defineQuery(`*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{
   _id,
   caseTitle,
   caseCategory,
   slug,
+  caseDescription,
+  caseCardImage,
+  order,
   content[]{
     _key,
     _type,
@@ -115,4 +93,27 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
 export const PORTFOLIO_CASE_SLUGS_BY_CATEGORY =
 	defineQuery(`*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{
   slug
+}`)
+
+// All slugs
+export const PORTFOLIO_CASE_SLUGS =
+	defineQuery(`*[_type == "portfolioCase" && defined(slug.current)]{
+  slug
+}`)
+
+// alst portfolio cases
+export const LATEST_PORTFOLIO_ITEMS =
+	defineQuery(`*[_type == "portfolioCase"] | order(_createdAt desc) [0...10] {
+  _id,
+  caseTitle,
+  caseDescription,
+  slug,
+  caseCategory,
+  caseCardImage{
+    asset->{
+      _id,
+      url,
+      metadata
+    }
+  }
 }`)

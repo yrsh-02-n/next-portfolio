@@ -1,7 +1,13 @@
+export interface ICardImage {
+  asset: {url: string}
+}
+
 export interface IPortfolioCase {
-  caseTitle: string
-  caseSlug: string
-  caseCategory: string
-  caseImage: string
-  
+	_id?: string
+	slug: { current: string }
+	caseCardImage?: ICardImage
+	caseCategory?: string
+	caseDescription: string
+	caseTitle: string
+	className?: string
 }

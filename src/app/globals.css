@@ -216,8 +216,10 @@ li {
 
 .swiper-slide {
 	text-align: left;
-	font-size: 18px;
-	background: #444;
+	/* font-size: 18px; */
+	/* background: #444; */
+	height: auto !important;
+  height: full;
 
 	/* Center slide text vertically */
 	display: flex;
@@ -239,3 +241,6 @@ li {
 .swiper-pagination-bullet-active {
 	background: var(--accent) !important;
 }
+
+
+
