@@ -50,11 +50,7 @@ export default async function Page({
 
 	// category validation
 	if (!['design', 'dev'].includes(resolvedParams.category)) {
-		return (
-			<div className='container mx-auto px-4 py-16'>
-				<h1 className='text-3xl font-bold'>Invalid category</h1>
-			</div>
-		)
+		notFound()
 	}
 
 	const { data: page } = await sanityFetch({
@@ -67,7 +63,7 @@ export default async function Page({
 
 	// check case exists
 	if (!page || page.caseCategory !== resolvedParams.category) {
-		notFound() // Call 404
+		notFound()
 	}
 
 	// breadcrumbs
@@ -76,7 +72,7 @@ export default async function Page({
 		{
 			label:
 				resolvedParams.category === 'design'
-					? 'Портфолио: веб-дизайн'
+					? 'Портфолио: web-дизайн'
 					: 'Портфолио: frontend-разработка',
 			href: `/${resolvedParams.category}`
 		},
@@ -96,7 +92,14 @@ export default async function Page({
 				items={breadcrumbs}
 				className='mb-[2rem]'
 			/>
-			{page?.content ? <PageBuilder content={page.content} /> : null}
+			{page?.content ? (
+				<PageBuilder content={page.content} />
+			) : (
+				<div className='w-full flex flex-col items-center justify-center text-center'>
+					<div className='text-[2rem] mb-[1rem]'>(╯°□°)╯︵ ┻━┻</div>
+					<p className='text-2xl'>Страница проекта не загрузилась. Пожалуйста, обновите страницу</p>
+				</div>
+			)}
 		</Suspense>
 	)
 }
