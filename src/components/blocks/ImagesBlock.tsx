@@ -9,8 +9,6 @@ export function MultipleImagesBlock({ block }: { block: any }) {
 
 	return (
 		<div className='mb-[3rem] shadow'>
-			{' '}
-			{/* или другой контейнер */}
 			{images.map((image: any, index: number) => {
 				const imageUrl = image?.asset?.url
 

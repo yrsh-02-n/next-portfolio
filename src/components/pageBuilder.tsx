@@ -2,7 +2,7 @@ import { HeadingBlock } from './blocks/HeadingBlock'
 import { MultipleImagesBlock } from './blocks/ImagesBlock'
 import { OneImageBlock } from './blocks/OneImageBlock'
 import { SplitImage } from './blocks/SplitImage'
-import { TextOnlyBlock } from './blocks/textOnlyBlock'
+import { TextOnlyBlock } from './blocks/TextOnlyBlock'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
 
 type PageBuilderProps = {

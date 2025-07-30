@@ -34,9 +34,14 @@ export function CaseCard({
 			</Link>
 			<div className='flex flex-col p-5 h-full'>
 				<div className='mb-[1.5rem]'>
-					<h3 className='text-2xl max-xl:text-xl font-md text-light leading-[1.2] mb-[1rem] line-clamp-2'>
-						{caseTitle}
-					</h3>
+					<Link
+						href={`/${caseCategory}/${slug.current}`}
+						className={cn('bg-white aspect-[16/9]')}
+					>
+						<h3 className='text-2xl max-xl:text-xl font-md text-light leading-[1.2] mb-[1rem] line-clamp-2'>
+							{caseTitle}
+						</h3>
+					</Link>
 					<p className='text-lg text-light/70 leading-[1.2] line-clamp-2'>{caseDescription}</p>
 				</div>
 				<Button

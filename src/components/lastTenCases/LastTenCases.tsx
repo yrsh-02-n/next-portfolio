@@ -69,11 +69,11 @@ export function LastTenCases() {
 									className='h-full'
 								>
 									<CaseCard
-										caseTitle={item.caseTitle || ''}
-										caseDescription={item.caseDescription || ''}
-										slug={item.slug || ''}
-										caseCategory={item.caseCategory || ''}
-										caseCardImage={item.caseCardImage || undefined}
+										caseTitle={item.caseTitle || null}
+										caseDescription={item.caseDescription || null}
+										slug={item.slug || null}
+										caseCategory={item.caseCategory || null}
+										caseCardImage={item.caseCardImage}
 									/>
 								</m.div>
 							</SwiperSlide>

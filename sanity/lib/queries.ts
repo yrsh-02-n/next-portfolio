@@ -26,6 +26,7 @@ export async function getHeroScreenData() {
 	)
 }
 
+// portfolio cases for case pages
 export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
 	defineQuery(`*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{
   _id,
@@ -89,19 +90,7 @@ export const PORTFOLIO_CASE_PAGE_BY_CATEGORY =
   }
 }`)
 
-// All slugs by category
-export const PORTFOLIO_CASE_SLUGS_BY_CATEGORY =
-	defineQuery(`*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{
-  slug
-}`)
-
-// All slugs
-export const PORTFOLIO_CASE_SLUGS =
-	defineQuery(`*[_type == "portfolioCase" && defined(slug.current)]{
-  slug
-}`)
-
-// alst portfolio cases
+// latest portfolio cases
 export const LATEST_PORTFOLIO_ITEMS =
 	defineQuery(`*[_type == "portfolioCase"] | order(_createdAt desc) [0...10] {
   _id,
@@ -114,6 +103,23 @@ export const LATEST_PORTFOLIO_ITEMS =
       _id,
       url,
       metadata
+    }
+  }
+}`)
+
+// cases by category for listing
+export const PORTFOLIO_CASES_BY_CATEGORY =
+	defineQuery(`*[_type == "portfolioCase" && caseCategory == $category] | order(order asc) {
+  _id,
+  caseTitle,
+  caseDescription,
+  slug,
+  caseCategory,
+  order,
+  caseCardImage{
+    asset->{
+      _id,
+      url,
     }
   }
 }`)
