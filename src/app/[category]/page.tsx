@@ -1,7 +1,7 @@
 'use client'
 
 import { m } from 'framer-motion'
-import { useParams } from 'next/navigation'
+import { notFound, useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { CategoryHeading } from '@/src/components/categoryHeading.tsx/CategoryHeading'
@@ -17,14 +17,15 @@ export default function Page() {
 	const [error, setError] = useState<string | null>(null)
 	const params = useParams<{ category?: string }>()
 	const loaderItemsCount = useSlidesCount()
+	const designTitle: string = 'Портфолио: web-дизайн'
+	const devTitle: string = 'Портфолио: frontend-разработка'
 
 	const category = params.category ? params.category.toLowerCase() : null
 
 	useEffect(() => {
 		if (!category || !['dev', 'design'].includes(category)) {
-			setError('Invalid category')
 			setIsLoading(false)
-			return
+			notFound()
 		}
 
 		// data fetch
@@ -41,7 +42,8 @@ export default function Page() {
 
 				const data = await response.json()
 				setCases(data)
-			} catch (err) {
+			} catch (error) {
+				setError('Портфолио не загрузилось. Пожалуйста, обновите страницу')
 			} finally {
 				setIsLoading(false)
 			}
@@ -54,7 +56,7 @@ export default function Page() {
 	const breadcrumbs = [
 		{ label: 'Главная', href: '/' },
 		{
-			label: category === 'design' ? 'Портфолио: веб-дизайн' : 'Портфолио: frontend-разработка',
+			label: category === 'design' ? designTitle : devTitle,
 			isCurrent: true
 		}
 	]
@@ -67,7 +69,7 @@ export default function Page() {
 			/>
 
 			<CategoryHeading
-				title={category === 'design' ? 'Портфолио: веб-дизайн' : 'Портфолио: frontend-разработка'}
+				title={category === 'design' ? designTitle : devTitle}
 				image={category === 'design' ? '/covers/design-cover.jpg' : '/covers/dev-cover.jpg'}
 			/>
 
@@ -76,6 +78,7 @@ export default function Page() {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 0.5 }}
+          className='mb-[5rem]'
 				>
 					<div
 						className={`grid grid-cols-5 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[2.5rem]`}
@@ -98,6 +101,12 @@ export default function Page() {
 						count={loaderItemsCount}
 						className='h-[24rem]'
 					/>
+				</div>
+			)}
+			{error && (
+				<div className='w-full flex flex-col items-center justify-center text-center'>
+					<div className='text-[2rem] mb-[1rem]'>(╯°□°)╯︵ ┻━┻</div>
+					<p className='text-2xl'>{error}</p>
 				</div>
 			)}
 		</div>

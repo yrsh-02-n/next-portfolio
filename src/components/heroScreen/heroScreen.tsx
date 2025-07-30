@@ -16,6 +16,7 @@ export function HeroScreen() {
 	const [data, setData] = useState<IHeroScreenData>()
 	const [isShowLinks, setIsShowLinks] = useState<boolean>(false)
 	const [isLoading, setIsLoading] = useState<boolean>(true)
+	const [error, setError] = useState<string | null>(null)
 
 	// keyboard navigation logic
 	const { selectedIndex, setSelectedIndex } = useKeyboardNavigation({
@@ -34,6 +35,10 @@ export function HeroScreen() {
 			.then(data => {
 				setData(data)
 				setIsLoading(false)
+			})
+			.catch(error => {
+				setIsLoading(false)
+				setError('Ошибка при загрузке блока. Пожалуйста, обновите страницу')
 			})
 	}, [])
 
@@ -61,6 +66,12 @@ export function HeroScreen() {
 						{/* text lines from sanity */}
 						<div className='mb-6 max-md:text-xl'>
 							<HeroScreenTextItem text={data?.text.join('\n > ') ?? ''} />
+              {error && (
+								<div className='w-full flex flex-col h-full justify-center items-center text-center'>
+									<div className='text-[2rem] mb-[1rem]'>(╯°□°)╯︵ ┻━┻</div>
+									<p className='text-2xl'>{error}</p>
+								</div>
+							)}
 						</div>
 
 						{/* links with keyboard control from sanity */}
@@ -97,7 +108,7 @@ export function HeroScreen() {
 
 				{/* Mobile buttons */}
 				<div className='flex flex-col gap-3 lg:hidden'>
-					{data ? (
+					{data || error ? (
 						data?.links?.map((item, i) => {
 							return (
 								<Button

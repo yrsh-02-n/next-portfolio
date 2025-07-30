@@ -25,7 +25,7 @@ export function CategoryHeading({ title, description, image}: headingBlockProps)
 							alt={title}
 							src={image}
 							fill
-							className='object-cover aspect-[16/9] object-top-right'
+							className='object-cover aspect-[16/9] object-top-right bg-right'
 						/>
 					</div>
 

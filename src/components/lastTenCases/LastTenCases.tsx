@@ -16,6 +16,7 @@ export function LastTenCases() {
 	const [cases, setCases] = useState<IPortfolioCase[]>([])
 	const [isLoading, setIsLoading] = useState<boolean>(true)
 	const loaderItemsCount = useSlidesCount()
+	const [error, setError] = useState<string | null>(null)
 
 	useEffect(() => {
 		setIsLoading(true)
@@ -27,8 +28,8 @@ export function LastTenCases() {
 				console.log(data)
 			})
 			.catch(error => {
-				console.error('Error fetching social links:', error)
 				setIsLoading(false)
+				setError('Ошибка при загрузке портфолио. Пожалуйста, обновите страницу')
 			})
 	}, [])
 
@@ -79,6 +80,12 @@ export function LastTenCases() {
 							</SwiperSlide>
 						))}
 					</Slider>
+				</div>
+			)}
+			{error && (
+				<div className='w-full flex flex-col items-center justify-center text-center'>
+					<div className='text-[2rem] mb-[1rem]'>(╯°□°)╯︵ ┻━┻</div>
+					<p className='text-2xl'>{error}</p>
 				</div>
 			)}
 		</section>
