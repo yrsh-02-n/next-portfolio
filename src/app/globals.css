@@ -35,7 +35,7 @@
 
 	--breakpoint-4xl: 240rem; /* 3840 px */
 	--breakpoint-2xl: 120rem; /* 1920 px */
-	--breakpoint-xl: 90rem; /* 1440 px */
+	--breakpoint-xl: 92rem; /* 1460 px */
 	--breakpoint-lg: 64rem; /* 1024 px */
 	--breakpoint-md: 50rem; /* 748 px */
 	--breakpoint-s: 30rem; /* 480 px */
@@ -188,6 +188,14 @@ h6 {
 	text-wrap: balance;
 }
 
+ul {
+	padding-left: 13px;
+}
+
+li {
+	list-style: square;
+}
+
 /* Swiper slider */
 .swiper {
 	width: 100%;
@@ -201,15 +209,17 @@ h6 {
 }
 
 @media (min-width: 799px) {
-  .swiper-pagination {
-    display: none !important;
-  }
+	.swiper-pagination {
+		display: none !important;
+	}
 }
 
 .swiper-slide {
 	text-align: left;
-	font-size: 18px;
-	background: #444;
+	/* font-size: 18px; */
+	/* background: #444; */
+	height: auto !important;
+  height: full;
 
 	/* Center slide text vertically */
 	display: flex;
@@ -225,11 +235,12 @@ h6 {
 }
 
 .swiper-pagination-bullet {
-  background: var(--primary) !important;
+	background: var(--primary) !important;
 }
 
 .swiper-pagination-bullet-active {
-  background: var(--accent) !important;
+	background: var(--accent) !important;
 }
+
 
 

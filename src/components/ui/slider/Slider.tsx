@@ -11,30 +11,15 @@ import { Swiper, SwiperClass } from 'swiper/react'
 import { useWindowSize } from 'usehooks-ts'
 
 import { SliderNavButton } from './SliderNavButton'
+import { useSlidesCount } from '@/src/hooks/useSlidesCount'
 
 interface Props {
 	children: ReactNode
 }
 
 export function Slider({ children }: Props) {
-	const windowSize = useWindowSize()
-	const [slidesCount, setSlidesCount] = useState<number>(4)
+  const slidesCount = useSlidesCount()
 	const swiperRef = useRef<SwiperClass | null>(null) // for use custom buttons
-
-	// change count of slides on screen based on window screen on resize
-	useEffect(() => {
-		if (windowSize.width !== null) {
-			if (windowSize.width < 610) {
-				setSlidesCount(1)
-			} else if (windowSize.width < 1024) {
-				setSlidesCount(2)
-			} else if (windowSize.width < 1460) {
-				setSlidesCount(3)
-			} else {
-				setSlidesCount(4)
-			}
-		}
-	}, [windowSize.width])
 
   // !!! DOTS AND MAIN STYLES OF SLIDER CUSTOMIZED IN GLOBAL.CSS !!!
 

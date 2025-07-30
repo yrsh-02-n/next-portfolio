@@ -1,5 +1,8 @@
 import { HeadingBlock } from './blocks/HeadingBlock'
+import { MultipleImagesBlock } from './blocks/ImagesBlock'
+import { OneImageBlock } from './blocks/OneImageBlock'
 import { SplitImage } from './blocks/SplitImage'
+import { TextOnlyBlock } from './blocks/TextOnlyBlock'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
 
 type PageBuilderProps = {
@@ -29,10 +32,30 @@ export function PageBuilder({ content }: PageBuilderProps) {
 								{...block}
 							/>
 						)
-
+					case 'caseOneImage':
+						return (
+							<OneImageBlock
+								key={block._key}
+								{...block}
+							/>
+						)
+					case 'multipleCaseImages':
+						return (
+							<MultipleImagesBlock
+								key={block._key}
+								block={block}
+							/>
+						)
+					case 'textOnlyBlock':
+						return (
+							<TextOnlyBlock
+								key={block._key}
+								{...block}
+							/>
+						)
 					default:
 						// This is a fallback for when we don't have a block type
-						return <div key={block._key}>Block not found: {block._type}</div>
+						return <div>Block not found</div>
 				}
 			})}
 		</main>

@@ -1,3 +1,4 @@
+
 import { PortableText } from 'next-sanity'
 import Image from 'next/image'
 
@@ -14,9 +15,9 @@ type HeadingBlocksProps = Extract<
 
 export function HeadingBlock({ title, description, btnText, btnUrl, image }: HeadingBlocksProps) {
 	return (
-		<section className='relative mb-[5rem]'>
+		<section className='relative mb-[3rem]'>
 			<div>
-				<div className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem]'>
+				<div className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem] min-h-[15rem] flex flex-col justify-center'>
 					<div className='absolute inset-0 h-auto saturate-0'>
 						{image && (
 							<Image
@@ -38,20 +39,20 @@ export function HeadingBlock({ title, description, btnText, btnUrl, image }: Hea
 								{title}
 							</Heading>
 						) : null}
-						<div className='text-2xl max-s:text-lg text-light mb-[2.5rem]'>
+						<div className='text-2xl max-s:text-lg text-light'>
 							{description ? <PortableText value={description} /> : null}
 						</div>
-						{btnUrl && (
+						{btnUrl ? (
 							<Button
 								href={btnUrl}
 								variable='main'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='sm:w-[20rem] w-full'
+								className='sm:w-[20rem] w-full mt-[2rem]'
 							>
 								{btnText}
 							</Button>
-						)}
+						) : null}
 					</div>
 				</div>
 			</div>

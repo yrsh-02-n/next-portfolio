@@ -44,6 +44,12 @@ export const portfolioCaseType = defineType({
 			validation: rule => rule.required()
 		}),
 		defineField({
+			name: 'caseCardImage',
+			title: 'Case card image',
+			type: 'image',
+			validation: rule => rule.required()
+		}),
+		defineField({
 			name: 'content',
 			type: 'pageBuilder'
 		})

@@ -15,7 +15,7 @@ interface IBreadcrumbsProps {
 
 export function Breadcrumbs({ items, className }: IBreadcrumbsProps) {
 	return (
-		<nav className={cn('text-md', className)}>
+		<nav className={cn('text-lg max-s:text-[1rem]', className)}>
 			<ol className='flex items-center flex-wrap'>
 				{items.map((item, index) => (
 					<li

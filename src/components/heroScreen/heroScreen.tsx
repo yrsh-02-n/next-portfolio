@@ -50,7 +50,7 @@ export function HeroScreen() {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5 }}
 		>
-			<div className='grid grid-cols-[74.5%_auto] max-xl:grid-cols-[70%_auto] max-lg:grid-cols-1 gap-10 max-lg:gap-5'>
+			<div className='grid grid-cols-[74.5%_auto] max-xl:grid-cols-[70%_auto] max-lg:grid-cols-1 gap-10 max-lg:gap-5 mb-[5rem]'>
 				{isLoading ? (
 					<SkeletonLoader
 						count={1}
