@@ -25,7 +25,6 @@ export function LastTenCases() {
 			.then(data => {
 				setCases(data)
 				setIsLoading(false)
-				console.log(data)
 			})
 			.catch(error => {
 				setIsLoading(false)

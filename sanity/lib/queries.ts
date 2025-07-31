@@ -123,3 +123,19 @@ export const PORTFOLIO_CASES_BY_CATEGORY =
     }
   }
 }`)
+
+// resume block
+export async function getResumeData() {
+	return client.fetch(
+		`*[_type == "resumeType"][0]{
+      _id,
+      goal,
+      money,
+      stack[],
+      plan[],
+      additionalSkills[],
+      experience[],
+      about
+    }`
+	)
+}
