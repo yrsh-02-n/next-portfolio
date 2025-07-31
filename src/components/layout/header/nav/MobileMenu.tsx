@@ -1,15 +1,16 @@
 import cn from 'clsx'
 
-
 import { HeaderMenu } from '../HeaderMenu'
 import { HEADER_DATA } from '../header.data'
+
 import { SocialsClient } from '@/src/components/socials/SocialsClient'
 
 interface Props {
 	className: string
+	onClick: React.MouseEventHandler<HTMLAnchorElement>
 }
 
-export function MobileMenu({ className }: Props) {
+export function MobileMenu({ className, onClick }: Props) {
 	return (
 		<div
 			className={cn(
@@ -20,6 +21,7 @@ export function MobileMenu({ className }: Props) {
 			<HeaderMenu
 				menu={HEADER_DATA}
 				className='relative w-full flex flex-col items-end gap-6 h-full mt-5'
+        onClick={onClick}
 			/>
 			<SocialsClient className='justify-end' />
 		</div>

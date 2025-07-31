@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { setServerTheme } from '@/src/server-actions/theme-action/themeAction'
 
 interface Props {
-	className: string
+	className?: string
 }
 
 export function ThemeSwitcher({ className }: Props) {
