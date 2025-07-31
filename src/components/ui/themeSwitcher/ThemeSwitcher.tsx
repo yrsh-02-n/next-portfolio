@@ -1,49 +1,73 @@
 'use client'
 
-import cn from 'clsx'
 import { Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
+import { SkeletonLoader } from '../skeletonLoader/skeletonLoader'
+
 import { setServerTheme } from '@/src/server-actions/theme-action/themeAction'
 
-interface Props {
-	className: string
-}
-
-export function ThemeSwitcher({ className }: Props) {
+export function ThemeSwitcher() {
 	const [theme, setTheme] = useState<'light' | 'dark'>('light')
+	const [icon, setIcon] = useState<'Moon' | 'Sun'>('Moon')
 	const [mounted, setMounted] = useState(false)
 
-	/* read cookie at first render */
+	/* read cookies at first render */
 	useEffect(() => {
-		const cookieValue = document.cookie
+		// read theme from cookies
+		const cookieThemeValue = document.cookie
 			.split('; ')
 			.find(row => row.startsWith('theme='))
-			?.split('=')[1] as 'light' | 'dark'
+			?.split('=')[1] as 'light' | 'dark' | undefined
 
-		const initial = cookieValue ?? 'light'
-		setTheme(initial)
-		document.documentElement.classList.toggle('dark', initial === 'dark')
+		const initialTheme = cookieThemeValue ?? 'light'
+		setTheme(initialTheme)
+		document.documentElement.classList.toggle('dark', initialTheme === 'dark')
+
+		// read theme icon from cookies
+		const cookieIconValue = document.cookie
+			.split('; ')
+			.find(row => row.startsWith('themeIcon='))
+			?.split('=')[1] as 'Moon' | 'Sun' | undefined
+
+		const initialIcon = cookieIconValue ?? 'Moon'
+		setIcon(initialIcon)
+
 		setMounted(true)
 	}, [])
 
 	const toggle = async () => {
-		const next = theme === 'light' ? 'dark' : 'light'
-		setTheme(next)
-		await setServerTheme(next)
-		document.documentElement.classList.toggle('dark', next === 'dark')
+		const nextTheme = theme === 'light' ? 'dark' : 'light'
+		const nextIcon = icon === 'Moon' ? 'Sun' : 'Moon'
+
+		setTheme(nextTheme)
+		setIcon(nextIcon)
+
+		// save data
+		await setServerTheme(nextTheme, nextIcon)
+		document.documentElement.classList.toggle('dark', nextTheme === 'dark')
+	}
+
+	// render after component mount
+	if (!mounted) {
+		return (
+			<SkeletonLoader
+				count={1}
+				className='w-[24px] h-[24px]'
+			/>
+		)
 	}
 
 	return (
 		<button
 			onClick={toggle}
 			title='Сменить тему'
-			className='text-primary max-md:absolute max-md:bottom-[-32] max-md:left-1.5 focus:outline-0 focus:text-accent/50'
+			className='text-primary max-md:absolute max-md:bottom-[-32] max-md:left-1.5 focus:outline-0'
 		>
-			{theme === 'light' ? (
-				<Moon className='hover:text-accent transition-colors duration-200' />
+			{icon === 'Moon' ? (
+				<Moon className='hover:text-accent transition-colors duration-200' size={24} />
 			) : (
-				<Sun className='hover:text-accent transition-colors duration-200' />
+				<Sun className='hover:text-accent transition-colors duration-200' size={24} />
 			)}
 		</button>
 	)

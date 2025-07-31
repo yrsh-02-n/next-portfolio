@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react'
 
-import { ThemeSwitcher } from '../../ui/themeSwitcher/ThemeSwitcher'
-
 import { BurgerBtn } from './BurgerBtn'
 import { HeaderMenu } from './HeaderMenu'
 import { Logo } from './Logo'
@@ -28,10 +26,13 @@ export function Header() {
 		<header className='flex items-center justify-between fixed w-full md:pr-10 border-b border-primary/40 bg-bg md:bg-bg/70 shrink-0 z-9999'>
 			<Logo />
 			<HeaderMenu
-				className='max-md:hidden gap-10'
+				className='max-md:hidden gap-10 items-center'
 				menu={HEADER_DATA}
 			/>
-			<MobileMenu className={!mobileMenuIsOpen ? 'translate-x-full' : 'translate-x-0'} />
+			<MobileMenu
+				onClick={() => setMobileMenuIsOpen(false)}
+				className={!mobileMenuIsOpen ? 'translate-x-full' : 'translate-x-0'}
+			/>
 			<BurgerBtn
 				onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}
 				isOpen={mobileMenuIsOpen}

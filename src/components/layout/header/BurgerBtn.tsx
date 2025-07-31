@@ -1,6 +1,5 @@
 import cn from 'clsx'
 import { MouseEvent } from 'react'
-import { twMerge } from 'tw-merge'
 
 interface Props {
 	onClick: (event: MouseEvent<HTMLButtonElement>) => void

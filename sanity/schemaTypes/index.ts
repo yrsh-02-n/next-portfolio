@@ -7,6 +7,7 @@ import { textOnlyBlock } from './blocks/textOnlyBlock'
 import { heroScreenType } from './heroScreen'
 import { pageBuilderType } from './pageBuilderType'
 import { portfolioCaseType } from './portfolioCaseType'
+import { resumeType } from './resumeType'
 import { SocialLinkType } from './socialLink'
 
 export const schemaTypes = [
@@ -19,5 +20,6 @@ export const schemaTypes = [
 	blockContent,
 	oneImageBlockType,
 	imagesBlockType,
-	textOnlyBlock
+	textOnlyBlock,
+	resumeType
 ]

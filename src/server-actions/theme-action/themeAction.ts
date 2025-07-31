@@ -2,14 +2,15 @@
 
 import { cookies } from 'next/headers'
 
-import { PAGE } from '@/src/config/public-page.config'
-
-const THEME_COOKIE = 'theme'
-
-export async function setServerTheme(theme: 'light' | 'dark') {
+export async function setServerTheme(theme: 'light' | 'dark', themeIcon: 'Moon' | 'Sun') {
 	const cookieStore = await cookies()
-	cookieStore.set(THEME_COOKIE, theme, {
-		path: PAGE.HOME,
+	cookieStore.set('theme', theme, {
+		path: '/',
+		maxAge: 60 * 60 * 24 * 365,
+		sameSite: 'lax'
+	})
+	cookieStore.set('themeIcon', themeIcon, {
+		path: '/',
 		maxAge: 60 * 60 * 24 * 365,
 		sameSite: 'lax'
 	})

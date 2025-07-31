@@ -1,12 +1,27 @@
+// middleware.ts
 import { NextRequest, NextResponse } from 'next/server'
 
-import { THEME_COOKIE } from '../../components/theme/theme-cookie'
-import { PAGE } from '../../config/public-page.config'
-
 export function themeMiddleware(req: NextRequest) {
-	const theme = req.cookies.get(THEME_COOKIE)?.value ?? 'light'
+	// read theme from cookies
+	const theme = req.cookies.get('theme')?.value ?? 'light'
+	// read theme ion from cookies
+	const themeIcon = req.cookies.get('themeIcon')?.value ?? 'Moon'
+
 	const res = NextResponse.next()
-	res.cookies.set(THEME_COOKIE, theme, { path: PAGE.HOME })
+
+	// set cookies
+	res.cookies.set('theme', theme, {
+		path: '/',
+		maxAge: 60 * 60 * 24 * 365,
+		sameSite: 'lax'
+	})
+
+	res.cookies.set('themeIcon', themeIcon, {
+		path: '/',
+		maxAge: 60 * 60 * 24 * 365,
+		sameSite: 'lax'
+	})
+
 	return res
 }
 
