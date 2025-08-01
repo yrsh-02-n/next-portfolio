@@ -8,7 +8,7 @@ import { IMenuItem } from './nav/menu.types'
 interface IHeaderMenu {
 	menu: IMenuItem[]
 	className?: string
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>
+	onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
 export function HeaderMenu({ menu, className, onClick }: IHeaderMenu) {
@@ -19,7 +19,7 @@ export function HeaderMenu({ menu, className, onClick }: IHeaderMenu) {
 					<MenuItem
 						key={item.link}
 						item={item}
-            onClick={onClick}
+						onClick={onClick}
 					/>
 				))}
 			</ul>
