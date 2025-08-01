@@ -16,6 +16,52 @@ import '@sanity/client'
  */
 
 // Source: schema.json
+export type ResumeType = {
+	_id: string
+	_type: 'resumeType'
+	_createdAt: string
+	_updatedAt: string
+	_rev: string
+	goal?: string
+	money?: string
+	stack?: Array<{
+		stackItem?: string
+		_key: string
+	}>
+	plan?: Array<{
+		planningItem?: string
+		_key: string
+	}>
+	additionalSkills?: Array<{
+		additionalSkillItem?: string
+		_key: string
+	}>
+	experience?: Array<{
+		company?: string
+		jobTitle?: string
+		years?: string
+		_key: string
+	}>
+	about?: Array<{
+		children?: Array<{
+			marks?: Array<string>
+			text?: string
+			_type: 'span'
+			_key: string
+		}>
+		style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+		listItem?: 'bullet' | 'number'
+		markDefs?: Array<{
+			href?: string
+			_type: 'link'
+			_key: string
+		}>
+		level?: number
+		_type: 'block'
+		_key: string
+	}>
+}
+
 export type TextOnlyBlock = {
 	_type: 'textOnlyBlock'
 	text?: Array<{
@@ -334,6 +380,7 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+	| ResumeType
 	| TextOnlyBlock
 	| MultipleCaseImages
 	| CaseOneImage
@@ -454,21 +501,43 @@ export type PORTFOLIO_CASE_PAGE_BY_CATEGORYResult = {
 		  }
 	> | null
 } | null
-// Variable: PORTFOLIO_CASE_SLUGS_BY_CATEGORY
-// Query: *[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{  slug}
-export type PORTFOLIO_CASE_SLUGS_BY_CATEGORYResult = Array<{
+// Variable: LATEST_PORTFOLIO_ITEMS
+// Query: *[_type == "portfolioCase"] | order(_createdAt desc) [0...10] {  _id,  caseTitle,  caseDescription,  slug,  caseCategory,  caseCardImage{    asset->{      _id,      url,      metadata    }  }}
+export type LATEST_PORTFOLIO_ITEMSResult = Array<{
+	_id: string
+	caseTitle: string | null
+	caseDescription: string | null
 	slug: Slug | null
+	caseCategory: 'design' | 'dev' | null
+	caseCardImage: {
+		asset: {
+			_id: string
+			url: string | null
+			metadata: SanityImageMetadata | null
+		} | null
+	} | null
 }>
-// Variable: PORTFOLIO_CASE_SLUGS
-// Query: *[_type == "portfolioCase" && defined(slug.current)]{  slug}
-export type PORTFOLIO_CASE_SLUGSResult = Array<{
+// Variable: PORTFOLIO_CASES_BY_CATEGORY
+// Query: *[_type == "portfolioCase" && caseCategory == $category] | order(order asc) {  _id,  caseTitle,  caseDescription,  slug,  caseCategory,  order,  caseCardImage{    asset->{      _id,      url,    }  }}
+export type PORTFOLIO_CASES_BY_CATEGORYResult = Array<{
+	_id: string
+	caseTitle: string | null
+	caseDescription: string | null
 	slug: Slug | null
+	caseCategory: 'design' | 'dev' | null
+	order: number | null
+	caseCardImage: {
+		asset: {
+			_id: string
+			url: string | null
+		} | null
+	} | null
 }>
 
 declare module '@sanity/client' {
 	interface SanityQueries {
 		'*[_type == "portfolioCase" && slug.current == $slug && caseCategory == $category][0]{\n  _id,\n  caseTitle,\n  caseCategory,\n  slug,\n  caseDescription,\n  caseCardImage,\n  order,\n  content[]{\n    _key,\n    _type,\n    // Conditional fields based on block type\n    _type == "headingBlock" => {\n      title,\n      description,\n      btnText,\n      btnUrl,\n      image{\n        asset->{\n          _id,\n          url,\n          metadata\n        }\n      }\n    },\n    _type == "splitImage" => {\n      orientation,\n      text,\n      image{\n        asset->{\n          _id,\n          url,\n          metadata\n        }\n      }\n    },\n    _type == "caseOneImage" => {\n      image{\n        asset->{\n          _id,\n          url,\n          metadata\n        }\n      },\n      alt\n    },\n    _type == "multipleCaseImages" => {\n      images[]{\n        asset->{\n          _id,\n          url,\n          metadata\n        }\n      }\n    },\n    _type == "textOnlyBlock" => {\n        text\n      }\n    \n  }\n}': PORTFOLIO_CASE_PAGE_BY_CATEGORYResult
-		'*[_type == "portfolioCase" && caseCategory == $category && defined(slug.current)]{\n  slug\n}': PORTFOLIO_CASE_SLUGS_BY_CATEGORYResult
-		'*[_type == "portfolioCase" && defined(slug.current)]{\n  slug\n}': PORTFOLIO_CASE_SLUGSResult
+		'*[_type == "portfolioCase"] | order(_createdAt desc) [0...10] {\n  _id,\n  caseTitle,\n  caseDescription,\n  slug,\n  caseCategory,\n  caseCardImage{\n    asset->{\n      _id,\n      url,\n      metadata\n    }\n  }\n}': LATEST_PORTFOLIO_ITEMSResult
+		'*[_type == "portfolioCase" && caseCategory == $category] | order(order asc) {\n  _id,\n  caseTitle,\n  caseDescription,\n  slug,\n  caseCategory,\n  order,\n  caseCardImage{\n    asset->{\n      _id,\n      url,\n    }\n  }\n}': PORTFOLIO_CASES_BY_CATEGORYResult
 	}
 }

@@ -188,8 +188,8 @@ h6 {
 	text-wrap: balance;
 }
 
-ul {
-	padding-left: 13px;
+.sanity-block ul {
+	padding-left: 20px !important;
 }
 
 li {
@@ -219,7 +219,7 @@ li {
 	/* font-size: 18px; */
 	/* background: #444; */
 	height: auto !important;
-  height: full;
+	height: full;
 
 	/* Center slide text vertically */
 	display: flex;
@@ -241,6 +241,3 @@ li {
 .swiper-pagination-bullet-active {
 	background: var(--accent) !important;
 }
-
-
-

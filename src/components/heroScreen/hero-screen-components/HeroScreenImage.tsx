@@ -3,7 +3,7 @@ import Image from 'next/image'
 export function HeroScreenImage() {
 	return (
 		// background
-		<div className='relative overflow-hidden w-full h-full bg-primary bg-radial from-[#ffffff] to-[#4a4a47] opacity-95'>
+		<div className='relative overflow-hidden w-full h-full bg-primary bg-radial from-[#ffffff] to-[#4a4a47] opacity-95 border-b border-accent'>
 			{/* interference effect */}
 			<div
 				className='absolute opacity-40 z-11 overflow-hidden w-full h-full

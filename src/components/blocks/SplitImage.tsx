@@ -25,7 +25,7 @@ export function SplitImage({ text, image, orientation }: SplitImageProps) {
 					/>
 				) : null}
 			</div>
-			<div className='w-[60%] max-md:w-full text-2xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem]'>
+			<div className='w-[60%] max-md:w-full text-2xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] sanity-block'>
 				{text ? <PortableText value={text} /> : null}
 			</div>
 		</div>

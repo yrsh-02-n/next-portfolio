@@ -10,9 +10,7 @@ export async function GET() {
 		stack: data?.stack ?? [],
 		plan: data?.plan ?? [],
 		additionalSkills: data?.additionalSkills ?? [],
-		experienceCompany: data?.experience.company,
-		experienceJobTitle: data?.experience.jobTitle,
-		experienceYears: data?.experience.years,
+		experience: data?.experience,
 		about: data?.about
 	})
 }

@@ -18,7 +18,7 @@ export function CategoryHeading({ title, description, image}: headingBlockProps)
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5 }}
 		>
-			<section className='relative mb-[3rem]'>
+			<section className='relative mb-[3rem] border-b border-accent'>
 				<div className='relative w-full h-full shadow p-[2rem] max-s:p-[1rem] min-h-[15rem] flex flex-col justify-center'>
 					<div className='absolute inset-0 h-auto saturate-0'>
 						<Image

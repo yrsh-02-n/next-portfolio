@@ -55,14 +55,14 @@ export function HeroScreen() {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5 }}
 		>
-			<div className='grid grid-cols-[74.5%_auto] max-xl:grid-cols-[70%_auto] max-lg:grid-cols-1 gap-10 max-lg:gap-5 mb-[5rem]'>
+			<div className='grid grid-cols-[73%_auto] max-4xl:grid-cols-[70%_auto] max-xl:grid-cols-[65%_auto] max-lg:grid-cols-1 gap-10 max-lg:gap-5 mb-[5rem]'>
 				{isLoading ? (
 					<SkeletonLoader
 						count={1}
 						className='h-[50vh] max-lg:h-[26.5vh] max-md:h-[14.5rem] max-s:[h-20rem] max-xs:h-[18rem]'
 					/>
 				) : (
-					<div className='max-md:w-full text-bg h-[50vh] px-6 py-4 bg-secondary/80 shadow-lg max-lg:h-[26.5vh] max-md:h-[14.5rem] max-s:[h-20rem] max-xs:h-[18rem]'>
+					<div className='max-md:w-full text-bg h-[50vh] px-6 py-4 bg-secondary/80 shadow-lg max-lg:h-[26.5vh] max-md:h-[14.5rem] max-s:[h-20rem] max-xs:h-[18rem] border-b border-accent'>
 						{/* text lines from sanity */}
 						<div className='mb-6 max-md:text-xl'>
 							<HeroScreenTextItem text={data?.text.join('\n > ') ?? ''} />

@@ -19,7 +19,7 @@ export function CaseCard({
 	const imageUrl = caseCardImage?.asset.url || '/placeholder-image.jpg'
 
 	return (
-		<div className='relative flex flex-col flex-1 h-full max-w-full bg-secondary/90 shadow'>
+		<div className='relative flex flex-col flex-1 h-full max-w-full bg-secondary/90 shadow border-b border-accent'>
 			<Link
 				href={`/${caseCategory}/${slug.current}`}
 				className={cn('bg-white aspect-[16/9]')}
