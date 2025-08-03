@@ -1,6 +1,6 @@
-import { HeroScreen } from '../components/heroScreen/heroScreen'
+import { HeroScreen } from '../components/heroScreen/HeroScreen'
 import { DynamicLastTenCases } from '../components/lastTenCases/DynamicLastTenCases'
-import { Resume } from '../components/resume/resume'
+import { DynamicResume } from '../components/resume/DynamicResume'
 
 export const revalidate = 86400 // 1 day
 
@@ -9,7 +9,7 @@ export default async function IndexPage() {
 		<>
 			<HeroScreen />
 			<DynamicLastTenCases />
-      <Resume />
+			<DynamicResume />
 		</>
 	)
 }

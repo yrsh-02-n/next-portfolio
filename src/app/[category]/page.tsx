@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { CategoryHeading } from '@/src/components/categoryHeading.tsx/CategoryHeading'
 import { Breadcrumbs } from '@/src/components/ui/breadcrumbs/Breadcrumbs'
 import { CaseCard } from '@/src/components/ui/caseCard/CaseCard'
-import { SkeletonLoader } from '@/src/components/ui/skeletonLoader/skeletonLoader'
+import { SkeletonLoader } from '@/src/components/ui/skeletonLoader/SkeletonLoader'
 import { useSlidesCount } from '@/src/hooks/useSlidesCount'
 import { IPortfolioCase } from '@/src/types/portfolioCase'
 
@@ -78,7 +78,7 @@ export default function Page() {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 0.5 }}
-          className='mb-[5rem]'
+					className='mb-[5rem]'
 				>
 					<div
 						className={`grid grid-cols-5 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[2.5rem]`}
