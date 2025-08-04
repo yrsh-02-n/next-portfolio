@@ -4,6 +4,6 @@ export interface IMenuItem {
 	label?: string
 	link: string
 	icon?: LucideIcon
-	isActive: boolean
+	onClick?: React.MouseEventHandler<HTMLAnchorElement>
 	title: string
 }
