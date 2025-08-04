@@ -9,7 +9,9 @@ export default async function IndexPage() {
 		<>
 			<HeroScreen />
 			<DynamicLastTenCases />
-			<DynamicResume />
+			<div id='about' className='scroll-m-[90px]'>
+				<DynamicResume />
+			</div>
 		</>
 	)
 }

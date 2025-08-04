@@ -53,14 +53,14 @@ export function Resume() {
 				<ResumeLoader />
 			) : (
 				<div>
-					<div className='flex mb-[2rem] gap-[2rem]'>
-						<ResumeItemWrapper className='flex w-fit gap-[2rem] shrink-0'>
+					<div className='flex mb-[2rem] gap-[2rem] max-[1060px]:flex-wrap'>
+						<ResumeItemWrapper className='flex w-fit gap-[2rem] shrink-0 max-xl:flex-wrap max-xl:shrink-1 max-[1060px]:w-full'>
 							<ResumeItem
 								title='Возраст'
 								source={age}
 							/>
 							<ResumeItem
-								title='Карьерная цель'
+								title='Желаемая дожность'
 								source={data?.goal}
 							/>
 							<ResumeItem
@@ -69,7 +69,7 @@ export function Resume() {
 							/>
 						</ResumeItemWrapper>
 
-						<ResumeItemWrapper className='flex gap-[2rem] w-full'>
+						<ResumeItemWrapper className='flex gap-[2rem] w-full max-xl:w-auto max-[1060px]:min-w-full'>
 							<ResumeListItem title={'Стек'}>
 								{data?.stack?.map((item, index) => (
 									<ResumeItemText key={index}>{item.stackItem}</ResumeItemText>
@@ -78,8 +78,8 @@ export function Resume() {
 						</ResumeItemWrapper>
 					</div>
 
-					<div className='flex gap-[2rem] mb-[2rem] w-full'>
-						<ResumeItemWrapper className='shrink-0'>
+					<div className='flex gap-[2rem] mb-[2rem] w-full max-xl:w-auto max-[1060px]:flex-wrap'>
+						<ResumeItemWrapper className='shrink-0 max-xl:shrink-1 max-[1060px]:min-w-full'>
 							<ResumeListItem title={'В планах'}>
 								{data?.plan?.map((item, index) => (
 									<ResumeItemText key={index}>{item.planningItem}</ResumeItemText>
@@ -96,8 +96,8 @@ export function Resume() {
 						</ResumeItemWrapper>
 					</div>
 
-					<div className='flex mb-[2rem]'>
-						<ResumeItemWrapper className='w-full'>
+					<div className='flex flex-col gap-[2rem] max-xl:flex-row max-md:flex-col'>
+						<ResumeItemWrapper className='w-full max-xl:w-fit max-md:w-full'>
 							<ResumeTimeline title={'Опыт работы'}>
 								{data?.experience?.map((item, index) => (
 									<ResumeTimelineItem
@@ -110,10 +110,8 @@ export function Resume() {
 								))}
 							</ResumeTimeline>
 						</ResumeItemWrapper>
-					</div>
 
-					<div className='flex gap-[10rem]'>
-						<ResumeItemWrapper className=' text-lg w-full'>
+						<ResumeItemWrapper className='text-lg w-full max-xl:w-2/3 max-md:w-full'>
 							{data?.about ? <PortableText value={data?.about} /> : null}
 						</ResumeItemWrapper>
 					</div>
