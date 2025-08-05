@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server'
 import { PORTFOLIO_CASES_BY_CATEGORYResult } from 'sanity.types'
 import { client } from 'sanity/client'
-import { PORTFOLIO_CASES_BY_CATEGORY } from 'sanity/lib/queries'
 
-
+import { PORTFOLIO_CASES_BY_CATEGORY } from '@/sanity/lib/queries'
 
 export async function GET(request: Request) {
 	try {
@@ -25,7 +24,7 @@ export async function GET(request: Request) {
 			)
 		}
 
-		const cases:PORTFOLIO_CASES_BY_CATEGORYResult = await client.fetch(
+		const cases: PORTFOLIO_CASES_BY_CATEGORYResult = await client.fetch(
 			PORTFOLIO_CASES_BY_CATEGORY,
 			{ category } // param as query
 		)

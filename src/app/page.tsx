@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 import { HeroScreen } from '../components/heroScreen/HeroScreen'
-import { DynamicLastTenCases } from '../components/lastTenCases/DynamicLastTenCases'
+import { DynamicLastTenCases } from '../components/lastTenCases/dynamic-last-ten-cases'
 import { DynamicResume } from '../components/resume/dynamic-resume'
 
 export const metadata: Metadata = {
