@@ -29,7 +29,7 @@
     "react-type-animation": "^3.2.0",
     "react-typewriter-hook": "^1.0.2",
     "react-typing-animator": "^7.0.1",
-    "sanity": "^3.99.0",
+    "sanity": "^4.3.0",
     "styled-components": "^6.1.19",
     "swiper": "^11.2.10",
     "tailwind-merge": "^3.3.1",
