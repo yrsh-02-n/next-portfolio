@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { client } from 'sanity/client'
+import { client } from '@/sanity/client'
 
 import { LATEST_PORTFOLIO_ITEMS } from '@/sanity/lib/queries'
 

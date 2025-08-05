@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { PORTFOLIO_CASES_BY_CATEGORYResult } from 'sanity.types'
-import { client } from 'sanity/client'
+import { client } from '@/sanity/client'
 
 import { PORTFOLIO_CASES_BY_CATEGORY } from '@/sanity/lib/queries'
 

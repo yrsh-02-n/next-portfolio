@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { client } from 'sanity/client'
+import { client } from '@/sanity/client'
 
 type CasePageMetadataProps = {
 	params: Promise<{ slug: string; category: string }>
