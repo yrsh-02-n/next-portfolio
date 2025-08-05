@@ -10,6 +10,8 @@ import { CaseCard } from '@/src/components/ui/caseCard/CaseCard'
 import { SkeletonLoader } from '@/src/components/ui/skeletonLoader/SkeletonLoader'
 import { useSlidesCount } from '@/src/hooks/useSlidesCount'
 import { IPortfolioCase } from '@/src/types/portfolioCase'
+import { generateCategoryPageMetadata } from './categoryPageMetadata'
+import { Metadata } from 'next'
 
 export default function Page() {
 	const [cases, setCases] = useState<IPortfolioCase[]>([])
@@ -19,6 +21,14 @@ export default function Page() {
 	const loaderItemsCount = useSlidesCount()
 	const designTitle: string = 'Портфолио: web-дизайн'
 	const devTitle: string = 'Портфолио: frontend-разработка'
+
+  type Props = {
+  params: Promise<{ category: string }>
+}
+
+async function generateMetadata(props: Props): Promise<Metadata> {
+  return generateCategoryPageMetadata(props)
+}
 
 	const category = params.category ? params.category.toLowerCase() : null
 
