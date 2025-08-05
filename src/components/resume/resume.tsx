@@ -9,13 +9,13 @@ import { getAge } from '@/utils/getAge'
 
 import { Heading } from '../headings/Heading'
 
+import { ResumeItem } from './resume-items/resume-item'
+import { ResumeItemWrapper } from './resume-items/resume-item-wrapper'
+import { ResumeListItem } from './resume-items/resume-list-item'
+import { ResumeItemText } from './resume-items/resume-text-items/resume-item-text'
+import { ResumeTimeline } from './resume-items/resume-timeline/resume-timeline'
+import { ResumeTimelineItem } from './resume-items/resume-timeline/resume-timeline-item'
 import { ResumeLoader } from './resume-loader'
-import { ResumeItem } from './resume-items/ResumeItem'
-import { ResumeItemWrapper } from './resume-items/ResumeItemWrapper'
-import { ResumeListItem } from './resume-items/ResumeListItem'
-import { ResumeItemText } from './resume-items/resume-text-items/ResumeItemText'
-import { ResumeTimeline } from './resume-items/resume-timeline/ResumeTimeline'
-import { ResumeTimelineItem } from './resume-items/resume-timeline/ResumeTimelineItem'
 
 export function Resume() {
 	const [data, setData] = useState<ResumeType>()

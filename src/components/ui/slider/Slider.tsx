@@ -11,7 +11,7 @@ import { Swiper, SwiperClass } from 'swiper/react'
 
 import { useSlidesCount } from '@/hooks/useSlidesCount'
 
-import { SliderNavButton } from './SliderNavButton'
+import { SliderNavButton } from './slider-nav-button'
 
 interface Props {
 	children: ReactNode

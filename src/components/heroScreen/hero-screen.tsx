@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react'
 import { Button } from '../ui/button/Button'
 import { SkeletonLoader } from '../ui/skeleton-loader/skeleton-loader'
 
-import { HeroScreenImage } from './hero-screen-components/HeroScreenImage'
-import { HeroScreenLink } from './hero-screen-components/HeroScreenLink'
-import { HeroScreenTextItem } from './hero-screen-components/HeroScreenTextItem'
-import { IHeroScreenData } from './heroScreen.types'
+import { HeroScreenImage } from './hero-screen-components/hero-screen-image'
+import { HeroScreenLink } from './hero-screen-components/hero-screen-link'
+import { HeroScreenTextItem } from './hero-screen-components/hero-screen-text-item'
+import { IHeroScreenData } from './hero-screen.types'
 import { useKeyboardNavigation } from './use-hero-screen/useKeyboardNavigation'
 
 export function HeroScreen() {

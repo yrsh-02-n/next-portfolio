@@ -1,10 +1,9 @@
 import cn from 'clsx'
 
-import { HeaderMenu } from '../HeaderMenu'
+import { SocialsClient } from '@/components/socials/Socials'
+
+import { HeaderMenu } from '../header-menu'
 import { HEADER_DATA } from '../header.data'
-import { SocialsClient } from '@/components/socials/SocialsClient'
-
-
 
 interface Props {
 	className: string
@@ -22,7 +21,7 @@ export function MobileMenu({ className, onClick }: Props) {
 			<HeaderMenu
 				menu={HEADER_DATA}
 				className='relative w-full flex flex-col items-end gap-6 h-full mt-5'
-        onClick={onClick}
+				onClick={onClick}
 			/>
 			<SocialsClient className='justify-end' />
 		</div>

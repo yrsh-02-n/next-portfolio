@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Tektur } from 'next/font/google'
 import { cookies } from 'next/headers'
 
-import { BgAnimation } from '../components/layout/bgAnimation/BgAnimation'
+import { BgAnimation } from '../components/layout/bgAnimation/bg-animation'
 import { Footer } from '../components/layout/footer/Footer'
 import { Header } from '../components/layout/header/Header'
 import { Sidebar } from '../components/layout/sidebar/Sidebar'

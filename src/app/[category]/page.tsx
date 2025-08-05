@@ -5,9 +5,9 @@ import { Metadata } from 'next'
 import { notFound, useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import { CategoryHeading } from '@/components/categoryHeading.tsx/CategoryHeading'
+import { CategoryHeading } from '@/components/category-heading/category-heading'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs/Breadcrumbs'
-import { CaseCard } from '@/components/ui/caseCard/CaseCard'
+import { CaseCard } from '@/components/ui/caseCard/case-card'
 import { SkeletonLoader } from '@/components/ui/skeleton-loader/skeleton-loader'
 
 import { useSlidesCount } from '@/hooks/useSlidesCount'
