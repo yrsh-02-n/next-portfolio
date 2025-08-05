@@ -12,7 +12,8 @@ import './globals.css'
 
 const tektur = Tektur({
 	variable: '--font-tektur',
-	weight: ['400', '500', '600']
+	weight: ['400', '500', '600'],
+	subsets: ['cyrillic', 'latin']
 })
 
 export const metadata: Metadata = {
