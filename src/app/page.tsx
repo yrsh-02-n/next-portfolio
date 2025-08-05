@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 import { HeroScreen } from '../components/heroScreen/HeroScreen'
 import { DynamicLastTenCases } from '../components/lastTenCases/DynamicLastTenCases'
-import { DynamicResume } from '../components/resume/DynamicResume'
+import { DynamicResume } from '../components/resume/dynamic-resume'
 
 export const metadata: Metadata = {
 	title: 'Кирилл Л. | Frontend-разработчик',

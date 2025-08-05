@@ -3,9 +3,7 @@
 import dynamic from 'next/dynamic'
 import { useEffect, useRef, useState } from 'react'
 
-const DynResume = dynamic(() => import('./Resume').then(mod => mod.Resume), {
-	ssr: false
-})
+const DynResume = dynamic(() => import('./Resume').then(mod => mod.Resume), { ssr: false })
 
 export function DynamicResume() {
 	const [isVisible, setIsVisible] = useState(false)
