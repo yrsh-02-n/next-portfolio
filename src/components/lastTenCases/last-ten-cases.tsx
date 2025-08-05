@@ -7,7 +7,7 @@ import { SwiperSlide } from 'swiper/react'
 import { useSlidesCount } from '@/hooks/useSlidesCount'
 
 import { Heading } from '../headings/Heading'
-import { CaseCard } from '../ui/caseCard/CaseCard'
+import { CaseCard } from '../ui/caseCard/case-card'
 import { SkeletonLoader } from '../ui/skeleton-loader/skeleton-loader'
 import { Slider } from '../ui/slider/Slider'
 

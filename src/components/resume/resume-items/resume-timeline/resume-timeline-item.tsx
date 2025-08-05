@@ -1,7 +1,7 @@
 import { m } from 'framer-motion'
 import { ReactNode } from 'react'
 
-import { ResumeItemText } from '../resume-text-items/ResumeItemText'
+import { ResumeItemText } from '../resume-text-items/resume-item-text'
 
 interface IResumeTimelineItemProps {
 	company: ReactNode

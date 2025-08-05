@@ -1,10 +1,10 @@
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from 'sanity.types'
 
-import { HeadingBlock } from './blocks/HeadingBlock'
-import { MultipleImagesBlock } from './blocks/ImagesBlock'
-import { OneImageBlock } from './blocks/OneImageBlock'
-import { SplitImage } from './blocks/SplitImage'
-import { TextOnlyBlock } from './blocks/TextOnlyBlock'
+import { HeadingBlock } from './blocks/heading-block'
+import { MultipleImagesBlock } from './blocks/images-block'
+import { OneImageBlock } from './blocks/one-image-block'
+import { SplitImage } from './blocks/split-image'
+import { TextOnlyBlock } from './blocks/text-only-block'
 
 type PageBuilderProps = {
 	content: NonNullable<PORTFOLIO_CASE_PAGE_BY_CATEGORYResult>['content']

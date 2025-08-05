@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react'
 
-import { BurgerBtn } from './BurgerBtn'
-import { HeaderMenu } from './HeaderMenu'
 import { Logo } from './Logo'
+import { BurgerBtn } from './burger-btn'
+import { HeaderMenu } from './header-menu'
 import { HEADER_DATA } from './header.data'
-import { MobileMenu } from './nav/MobileMenu'
+import { MobileMenu } from './nav/mobile-menu'
 
 export function Header() {
 	const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState<boolean>(false)

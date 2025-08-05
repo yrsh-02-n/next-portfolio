@@ -7,7 +7,7 @@ import { useActiveSectionByIntersection } from '@/hooks/useActiveSectionByInters
 
 import { ThemeSwitcher } from '../../ui/theme-switcher/theme-switcher'
 
-import { MenuItem } from './nav/MenuItem'
+import { MenuItem } from './nav/menu-item'
 import { IMenuItem } from './nav/menu.types'
 
 interface IHeaderMenu {

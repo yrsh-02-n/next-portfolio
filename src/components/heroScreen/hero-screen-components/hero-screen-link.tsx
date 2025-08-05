@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { IHeroScreenLink } from '../heroScreen.types'
+import { IHeroScreenLink } from '../hero-screen.types'
 
 export function HeroScreenLink({
 	title,

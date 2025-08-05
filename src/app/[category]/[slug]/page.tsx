@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
-import { client } from '@/sanity/client'
-import { sanityFetch } from '@/sanity/lib/live'
 
-import { PageBuilder } from '@/components/pageBuilder'
+import { PageBuilder } from '@/components/page-builder'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs/Breadcrumbs'
 import { SkeletonLoader } from '@/components/ui/skeleton-loader/skeleton-loader'
 
+import { client } from '@/sanity/client'
+import { sanityFetch } from '@/sanity/lib/live'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORY } from '@/sanity/lib/queries'
 
 // SSG

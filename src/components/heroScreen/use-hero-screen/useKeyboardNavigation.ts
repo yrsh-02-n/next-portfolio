@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 
-import { IHeroScreenLink } from '../heroScreen.types'
+import { IHeroScreenLink } from '../hero-screen.types'
 
 interface Props {
 	items: IHeroScreenLink[]
