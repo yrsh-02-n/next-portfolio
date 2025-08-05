@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
+import { PORTFOLIO_CASES_BY_CATEGORYResult } from 'sanity.types'
+import { client } from 'sanity/client'
+import { PORTFOLIO_CASES_BY_CATEGORY } from 'sanity/lib/queries'
 
-import { client } from '@/sanity/client'
-import { PORTFOLIO_CASES_BY_CATEGORY } from '@/sanity/lib/queries'
-import { PORTFOLIO_CASES_BY_CATEGORYResult } from '@/sanity.types'
+
 
 export async function GET(request: Request) {
 	try {

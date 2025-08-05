@@ -1,6 +1,5 @@
 import { PortableText } from 'next-sanity'
-
-import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
+import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from 'sanity.types'
 
 type textOnlyBlock = Extract<
 	NonNullable<NonNullable<PORTFOLIO_CASE_PAGE_BY_CATEGORYResult>['content']>[number],
@@ -8,5 +7,9 @@ type textOnlyBlock = Extract<
 >
 
 export function TextOnlyBlock({ text }: textOnlyBlock) {
-	return <div className='text-2xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] w-full sanity-block'>{text ? <PortableText value={text} /> : null}</div>
+	return (
+		<div className='text-2xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] w-full sanity-block'>
+			{text ? <PortableText value={text} /> : null}
+		</div>
+	)
 }

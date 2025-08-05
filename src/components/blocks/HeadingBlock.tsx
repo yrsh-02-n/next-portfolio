@@ -1,12 +1,10 @@
-
 import { PortableText } from 'next-sanity'
 import Image from 'next/image'
+import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from 'sanity.types'
+import { urlFor } from 'sanity/lib/image'
 
 import { Heading } from '../headings/Heading'
 import { Button } from '../ui/button/Button'
-
-import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
-import { urlFor } from '@/sanity/lib/image'
 
 type HeadingBlocksProps = Extract<
 	NonNullable<NonNullable<PORTFOLIO_CASE_PAGE_BY_CATEGORYResult>['content']>[number],
