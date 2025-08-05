@@ -9,7 +9,7 @@ import { getAge } from '@/utils/getAge'
 
 import { Heading } from '../headings/Heading'
 
-import { ResumeLoader } from './ResumeLoader'
+import { ResumeLoader } from './resume-loader'
 import { ResumeItem } from './resume-items/ResumeItem'
 import { ResumeItemWrapper } from './resume-items/ResumeItemWrapper'
 import { ResumeListItem } from './resume-items/ResumeListItem'
