@@ -17,9 +17,7 @@
         "react": "19.1.0",
         "react-dom": "19.1.0",
         "react-hotkeys-hook": "^5.1.0",
-        "react-type-animation": "^3.2.0",
         "react-typewriter-hook": "^1.0.2",
-        "react-typing-animator": "^7.0.1",
         "sanity": "^4.3.0",
         "styled-components": "^6.1.19",
         "swiper": "^11.2.10",
@@ -2050,11 +2048,7 @@
 
     "react-rx": ["react-rx@4.1.30", "", { "dependencies": { "observable-callback": "^1.0.3", "react-compiler-runtime": "19.1.0-rc.2", "use-effect-event": "^2.0.1" }, "peerDependencies": { "react": "^18.3 || >=19.0.0-0", "rxjs": "^7" } }, "sha512-O5+9CDr+yYqmPNb0Ddc6/wdc4EGpfZnZaK4h5Kf6d6ruleVb++usLUW39PmZowUH2bYCF7QnW5Gl0vLNVIlT0A=="],
 
-    "react-type-animation": ["react-type-animation@3.2.0", "", { "peerDependencies": { "prop-types": "^15.5.4", "react": ">= 15.0.0", "react-dom": ">= 15.0.0" } }, "sha512-WXTe0i3rRNKjmggPvT5ntye1QBt0ATGbijeW6V3cQe2W0jaMABXXlPPEdtofnS9tM7wSRHchEvI9SUw+0kUohw=="],
-
     "react-typewriter-hook": ["react-typewriter-hook@1.0.2", "", {}, "sha512-ICHmPaUfBMXz8EGtyNPhY0ftcHr/HC0bg3rQjoNp9kC4Dha+JK541MKdXphWgtnurftBCJ/f22kIjvbv8NYRgQ=="],
-
-    "react-typing-animator": ["react-typing-animator@7.0.1", "", { "peerDependencies": { "react": "^18.0.0", "react-dom": "^18.0.0" } }, "sha512-9cXH69dk+DdJmYk5FHreyHEYw0fuRCGxPGguDe/Bkt4sLCRkHgPPaF+JdcamFh41YwFtRHdJUPrQRsruKgMV/A=="],
 
     "read-pkg": ["read-pkg@5.2.0", "", { "dependencies": { "@types/normalize-package-data": "^2.4.0", "normalize-package-data": "^2.5.0", "parse-json": "^5.0.0", "type-fest": "^0.6.0" } }, "sha512-Ug69mNOpfvKDAc2Q8DRpMjjzdtrnv9HcSMX+4VsZxD1aZ6ZzrIE7rlzXBtWTyhULSMKg076AW6WR5iZpD0JiOg=="],
 
