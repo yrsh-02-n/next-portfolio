@@ -3,12 +3,12 @@
 import cn from 'clsx'
 import { usePathname } from 'next/navigation'
 
+import { useActiveSectionByIntersection } from '@/hooks/useActiveSectionByIntersection'
+
 import { ThemeSwitcher } from '../../ui/themeSwitcher/ThemeSwitcher'
 
 import { MenuItem } from './nav/MenuItem'
 import { IMenuItem } from './nav/menu.types'
-import { useActiveSectionByIntersection } from '@/src/hooks/useActiveSectionByIntersection'
-
 
 interface IHeaderMenu {
 	menu: IMenuItem[]

@@ -1,8 +1,8 @@
 import { PortableText, stegaClean } from 'next-sanity'
 import Image from 'next/image'
+import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from 'sanity.types'
+import { urlFor } from 'sanity/lib/image'
 
-import { PORTFOLIO_CASE_PAGE_BY_CATEGORYResult } from '@/sanity.types'
-import { urlFor } from '@/sanity/lib/image'
 
 type SplitImageProps = Extract<
 	NonNullable<NonNullable<PORTFOLIO_CASE_PAGE_BY_CATEGORYResult>['content']>[number],

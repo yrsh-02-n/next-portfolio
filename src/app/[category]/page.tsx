@@ -4,14 +4,15 @@ import { m } from 'framer-motion'
 import { notFound, useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import { CategoryHeading } from '@/src/components/categoryHeading.tsx/CategoryHeading'
-import { Breadcrumbs } from '@/src/components/ui/breadcrumbs/Breadcrumbs'
-import { CaseCard } from '@/src/components/ui/caseCard/CaseCard'
-import { SkeletonLoader } from '@/src/components/ui/skeletonLoader/SkeletonLoader'
-import { useSlidesCount } from '@/src/hooks/useSlidesCount'
-import { IPortfolioCase } from '@/src/types/portfolioCase'
+
 import { generateCategoryPageMetadata } from './categoryPageMetadata'
 import { Metadata } from 'next'
+import { IPortfolioCase } from '@/types/portfolioCase'
+import { useSlidesCount } from '@/hooks/useSlidesCount'
+import { CategoryHeading } from '@/components/categoryHeading.tsx/CategoryHeading'
+import { Breadcrumbs } from '@/components/ui/breadcrumbs/Breadcrumbs'
+import { CaseCard } from '@/components/ui/caseCard/CaseCard'
+import { SkeletonLoader } from '@/components/ui/skeletonLoader/SkeletonLoader'
 
 export default function Page() {
 	const [cases, setCases] = useState<IPortfolioCase[]>([])

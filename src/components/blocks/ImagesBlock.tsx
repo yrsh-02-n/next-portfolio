@@ -16,9 +16,7 @@ export function MultipleImagesBlock({ block }: { block: any }) {
 				const height = image.asset?.metadata?.dimensions?.height || 800
 
 				return (
-					<div
-						key={index}
-					>
+					<div key={index}>
 						<Image
 							src={imageUrl}
 							alt='Изображение проекта'

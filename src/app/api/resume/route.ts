@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
-
-import { getResumeData } from '@/sanity/lib/queries'
+import { getResumeData } from 'sanity/lib/queries'
 
 export async function GET() {
 	const data = await getResumeData()

@@ -9,8 +9,9 @@ import 'swiper/css/pagination'
 import { FreeMode, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperClass } from 'swiper/react'
 
+import { useSlidesCount } from '@/hooks/useSlidesCount'
+
 import { SliderNavButton } from './SliderNavButton'
-import { useSlidesCount } from '@/src/hooks/useSlidesCount'
 
 interface Props {
 	children: ReactNode

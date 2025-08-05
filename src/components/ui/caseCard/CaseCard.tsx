@@ -5,8 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Button } from '../button/Button'
+import { IPortfolioCase } from '@/types/portfolioCase'
 
-import { IPortfolioCase } from '@/src/types/portfolioCase'
+
 
 export function CaseCard({
 	slug,

@@ -3,6 +3,9 @@
 import { m } from 'framer-motion'
 import { PortableText } from 'next-sanity'
 import { useEffect, useState } from 'react'
+import { ResumeType } from 'sanity.types'
+
+import { getAge } from '@/utils/getAge'
 
 import { Heading } from '../headings/Heading'
 
@@ -13,8 +16,6 @@ import { ResumeListItem } from './resume-items/ResumeListItem'
 import { ResumeItemText } from './resume-items/resume-text-items/ResumeItemText'
 import { ResumeTimeline } from './resume-items/resume-timeline/ResumeTimeline'
 import { ResumeTimelineItem } from './resume-items/resume-timeline/ResumeTimelineItem'
-import { ResumeType } from '@/sanity.types'
-import { getAge } from '@/src/utils/getAge'
 
 export function Resume() {
 	const [data, setData] = useState<ResumeType>()

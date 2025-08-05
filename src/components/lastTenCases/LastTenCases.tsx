@@ -4,13 +4,14 @@ import { m } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { SwiperSlide } from 'swiper/react'
 
+import { useSlidesCount } from '@/hooks/useSlidesCount'
+
 import { Heading } from '../headings/Heading'
 import { CaseCard } from '../ui/caseCard/CaseCard'
 import { SkeletonLoader } from '../ui/skeletonLoader/SkeletonLoader'
 import { Slider } from '../ui/slider/Slider'
 
-import { useSlidesCount } from '@/src/hooks/useSlidesCount'
-import { IPortfolioCase } from '@/src/types/portfolioCase'
+import { IPortfolioCase } from '@/types/portfolioCase'
 
 export function LastTenCases() {
 	const [cases, setCases] = useState<IPortfolioCase[]>([])
@@ -75,7 +76,10 @@ export function LastTenCases() {
 					</div>
 				) : (
 					<div className='grid grid-cols-5 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[3rem]'>
-						<SkeletonLoader count={loaderItemsCount} className='h-[18rem]'/>
+						<SkeletonLoader
+							count={loaderItemsCount}
+							className='h-[18rem]'
+						/>
 					</div>
 				)}
 

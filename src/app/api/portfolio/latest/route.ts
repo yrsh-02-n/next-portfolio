@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
+import { client } from 'sanity/client'
+import { LATEST_PORTFOLIO_ITEMS } from 'sanity/lib/queries'
 
-import { client } from '@/sanity/lib/client'
-import { LATEST_PORTFOLIO_ITEMS } from '@/sanity/lib/queries'
 
 export async function GET() {
 	try {

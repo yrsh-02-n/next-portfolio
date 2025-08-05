@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { SkeletonLoader } from '../skeletonLoader/SkeletonLoader'
 
-import { setServerTheme } from '@/src/server-actions/theme-action/themeAction'
+import { setServerTheme } from '@/server-actions/theme-action/themeAction'
 
 export function ThemeSwitcher() {
 	const [theme, setTheme] = useState<'light' | 'dark'>('light')
