@@ -1,9 +1,14 @@
+'use client'
+
 import cn from 'clsx'
+import { usePathname } from 'next/navigation'
 
 import { ThemeSwitcher } from '../../ui/themeSwitcher/ThemeSwitcher'
 
 import { MenuItem } from './nav/MenuItem'
 import { IMenuItem } from './nav/menu.types'
+import { useActiveSectionByIntersection } from '@/src/hooks/useActiveSectionByIntersection'
+
 
 interface IHeaderMenu {
 	menu: IMenuItem[]
@@ -11,17 +16,31 @@ interface IHeaderMenu {
 	onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
+const SECTION_IDS = ['about']
+
 export function HeaderMenu({ menu, className, onClick }: IHeaderMenu) {
+	const pathName = usePathname()
+	const activeSectionId = useActiveSectionByIntersection(SECTION_IDS)
+
 	return (
 		<nav className={cn('flex justify-end', className)}>
 			<ul className={cn('flex', className)}>
-				{menu.map(item => (
-					<MenuItem
-						key={item.link}
-						item={item}
-						onClick={onClick}
-					/>
-				))}
+				{menu.map(item => {
+					// check for active item
+					const isActive =
+						pathName === item.link ||
+						(item.link !== '/' && pathName.startsWith(item.link)) ||
+						item.link === `/#${activeSectionId}`
+
+					return (
+						<MenuItem
+							key={item.link}
+							item={item}
+							onClick={onClick}
+							isActive={isActive}
+						/>
+					)
+				})}
 			</ul>
 			<ThemeSwitcher />
 		</nav>

@@ -6,7 +6,7 @@ import { sanityFetch } from '@/sanity/lib/live'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORY } from '@/sanity/lib/queries'
 import { PageBuilder } from '@/src/components/pageBuilder'
 import { Breadcrumbs } from '@/src/components/ui/breadcrumbs/Breadcrumbs'
-import { SkeletonLoader } from '@/src/components/ui/skeletonLoader/skeletonLoader'
+import { SkeletonLoader } from '@/src/components/ui/skeletonLoader/SkeletonLoader'
 
 // SSG
 export async function generateStaticParams() {

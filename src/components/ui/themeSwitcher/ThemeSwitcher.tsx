@@ -3,7 +3,7 @@
 import { Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-import { SkeletonLoader } from '../skeletonLoader/skeletonLoader'
+import { SkeletonLoader } from '../skeletonLoader/SkeletonLoader'
 
 import { setServerTheme } from '@/src/server-actions/theme-action/themeAction'
 
@@ -65,9 +65,15 @@ export function ThemeSwitcher() {
 			className='text-primary max-md:absolute max-md:bottom-[-32] max-md:left-1.5 focus:outline-0'
 		>
 			{icon === 'Moon' ? (
-				<Moon className='hover:text-accent transition-colors duration-200' size={24} />
+				<Moon
+					className='hover:text-accent transition-colors duration-200'
+					size={24}
+				/>
 			) : (
-				<Sun className='hover:text-accent transition-colors duration-200' size={24} />
+				<Sun
+					className='hover:text-accent transition-colors duration-200'
+					size={24}
+				/>
 			)}
 		</button>
 	)

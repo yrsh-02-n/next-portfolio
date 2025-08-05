@@ -26,6 +26,7 @@ export default async function RootLayout({
 	children: React.ReactNode
 }>) {
 	const theme = (await cookies()).get('theme')?.value === 'dark' ? 'dark' : ''
+
 	return (
 		<html lang='ru-RU'>
 			<body

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 import { client } from '@/sanity/client'
 import { PORTFOLIO_CASES_BY_CATEGORY } from '@/sanity/lib/queries'
-import { IPortfolioCase } from '@/src/types/portfolioCase'
+import { PORTFOLIO_CASES_BY_CATEGORYResult } from '@/sanity.types'
 
 export async function GET(request: Request) {
 	try {
@@ -24,7 +24,7 @@ export async function GET(request: Request) {
 			)
 		}
 
-		const cases: IPortfolioCase[] = await client.fetch(
+		const cases:PORTFOLIO_CASES_BY_CATEGORYResult = await client.fetch(
 			PORTFOLIO_CASES_BY_CATEGORY,
 			{ category } // param as query
 		)

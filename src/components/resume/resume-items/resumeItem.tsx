@@ -1,10 +1,8 @@
 // ResumeItem.tsx
 import { ReactNode } from 'react'
-import { ResumeItemTitle } from './resume-text-items/resumeItemTitle'
-import { ResumeItemText } from './resume-text-items/resumeItemText'
 
-
-
+import { ResumeItemText } from './resume-text-items/ResumeItemText'
+import { ResumeItemTitle } from './resume-text-items/ResumeItemTitle'
 
 interface IResumeItemProps {
 	title: ReactNode

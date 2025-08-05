@@ -16,12 +16,12 @@ export function CaseCard({
 	caseTitle
 }: IPortfolioCase) {
 	// image placeholder
-	const imageUrl = caseCardImage?.asset.url || '/placeholder-image.jpg'
+	const imageUrl = caseCardImage?.asset?.url || '/covers/placeholder-image.jpg'
 
 	return (
 		<div className='relative flex flex-col flex-1 h-full max-w-full bg-secondary/90 shadow border-b border-accent'>
 			<Link
-				href={`/${caseCategory}/${slug.current}`}
+				href={`/${caseCategory}/${slug?.current}`}
 				className={cn('bg-white aspect-[16/9]')}
 			>
 				<Image
@@ -35,7 +35,7 @@ export function CaseCard({
 			<div className='flex flex-col p-5 h-full'>
 				<div className='mb-[1.5rem]'>
 					<Link
-						href={`/${caseCategory}/${slug.current}`}
+						href={`/${caseCategory}/${slug?.current}`}
 						className={cn('bg-white aspect-[16/9]')}
 					>
 						<h3 className='text-2xl max-xl:text-xl font-md text-light leading-[1.2] mb-[1rem] line-clamp-2'>
@@ -47,7 +47,7 @@ export function CaseCard({
 				<Button
 					title={`Смотреть проект ${caseTitle}`}
 					variable='main'
-					href={`/${caseCategory}/${slug.current}`}
+					href={`/${caseCategory}/${slug?.current}`}
 					className='mt-auto'
 				>
 					Смотреть

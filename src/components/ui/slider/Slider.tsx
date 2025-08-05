@@ -1,14 +1,13 @@
 'use client'
 
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import { ReactNode, useRef } from 'react'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { FreeMode, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperClass } from 'swiper/react'
-import { useWindowSize } from 'usehooks-ts'
 
 import { SliderNavButton } from './SliderNavButton'
 import { useSlidesCount } from '@/src/hooks/useSlidesCount'
@@ -18,10 +17,10 @@ interface Props {
 }
 
 export function Slider({ children }: Props) {
-  const slidesCount = useSlidesCount()
+	const slidesCount = useSlidesCount()
 	const swiperRef = useRef<SwiperClass | null>(null) // for use custom buttons
 
-  // !!! DOTS AND MAIN STYLES OF SLIDER CUSTOMIZED IN GLOBAL.CSS !!!
+	// !!! DOTS AND MAIN STYLES OF SLIDER CUSTOMIZED IN GLOBAL.CSS !!!
 
 	return (
 		<div className='relative'>
