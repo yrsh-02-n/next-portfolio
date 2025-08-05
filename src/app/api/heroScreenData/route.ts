@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import { getHeroScreenData } from 'sanity/lib/queries'
+
+import { getHeroScreenData } from '@/sanity/lib/queries'
 
 export async function GET() {
 	const data = await getHeroScreenData()
