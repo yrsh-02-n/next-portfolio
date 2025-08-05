@@ -22,6 +22,11 @@ export default function Page() {
 
 	const category = params.category ? params.category.toLowerCase() : null
 
+  // return to top of page on loading
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
 	useEffect(() => {
 		if (!category || !['dev', 'design'].includes(category)) {
 			setIsLoading(false)
