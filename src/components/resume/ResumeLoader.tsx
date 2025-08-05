@@ -1,4 +1,4 @@
-import { SkeletonLoader } from '../ui/skeletonLoader/SkeletonLoader'
+import { SkeletonLoader } from '../ui/skeleton-loader/skeleton-loader'
 
 export function ResumeLoader() {
 	return (

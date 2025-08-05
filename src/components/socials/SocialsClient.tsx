@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-import { SkeletonLoader } from '../ui/skeletonLoader/SkeletonLoader'
+import { SkeletonLoader } from '../ui/skeleton-loader/skeleton-loader'
 
 import { ISocials } from './socials.types'
 
