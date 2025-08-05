@@ -4,7 +4,7 @@ import { m } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 import { Button } from '../ui/button/Button'
-import { SkeletonLoader } from '../ui/skeletonLoader/SkeletonLoader'
+import { SkeletonLoader } from '../ui/skeleton-loader/skeleton-loader'
 
 import { HeroScreenImage } from './hero-screen-components/HeroScreenImage'
 import { HeroScreenLink } from './hero-screen-components/HeroScreenLink'

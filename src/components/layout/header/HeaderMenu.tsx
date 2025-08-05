@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 import { useActiveSectionByIntersection } from '@/hooks/useActiveSectionByIntersection'
 
-import { ThemeSwitcher } from '../../ui/themeSwitcher/ThemeSwitcher'
+import { ThemeSwitcher } from '../../ui/theme-switcher/theme-switcher'
 
 import { MenuItem } from './nav/MenuItem'
 import { IMenuItem } from './nav/menu.types'

@@ -8,7 +8,7 @@ import { useSlidesCount } from '@/hooks/useSlidesCount'
 
 import { Heading } from '../headings/Heading'
 import { CaseCard } from '../ui/caseCard/CaseCard'
-import { SkeletonLoader } from '../ui/skeletonLoader/SkeletonLoader'
+import { SkeletonLoader } from '../ui/skeleton-loader/skeleton-loader'
 import { Slider } from '../ui/slider/Slider'
 
 import { IPortfolioCase } from '@/types/portfolioCase'

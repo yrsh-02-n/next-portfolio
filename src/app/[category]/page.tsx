@@ -1,18 +1,19 @@
 'use client'
 
 import { m } from 'framer-motion'
+import { Metadata } from 'next'
 import { notFound, useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-
-import { generateCategoryPageMetadata } from './categoryPageMetadata'
-import { Metadata } from 'next'
-import { IPortfolioCase } from '@/types/portfolioCase'
-import { useSlidesCount } from '@/hooks/useSlidesCount'
 import { CategoryHeading } from '@/components/categoryHeading.tsx/CategoryHeading'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs/Breadcrumbs'
 import { CaseCard } from '@/components/ui/caseCard/CaseCard'
-import { SkeletonLoader } from '@/components/ui/skeletonLoader/SkeletonLoader'
+import { SkeletonLoader } from '@/components/ui/skeleton-loader/skeleton-loader'
+
+import { useSlidesCount } from '@/hooks/useSlidesCount'
+
+import { generateCategoryPageMetadata } from './categoryPageMetadata'
+import { IPortfolioCase } from '@/types/portfolioCase'
 
 export default function Page() {
 	const [cases, setCases] = useState<IPortfolioCase[]>([])
@@ -23,17 +24,17 @@ export default function Page() {
 	const designTitle: string = 'Портфолио: web-дизайн'
 	const devTitle: string = 'Портфолио: frontend-разработка'
 
-  type Props = {
-  params: Promise<{ category: string }>
-}
+	type Props = {
+		params: Promise<{ category: string }>
+	}
 
-async function generateMetadata(props: Props): Promise<Metadata> {
-  return generateCategoryPageMetadata(props)
-}
+	async function generateMetadata(props: Props): Promise<Metadata> {
+		return generateCategoryPageMetadata(props)
+	}
 
 	const category = params.category ? params.category.toLowerCase() : null
 
-  // return to top of page on loading
+	// return to top of page on loading
 	useEffect(() => {
 		window.scrollTo(0, 0)
 	}, [])

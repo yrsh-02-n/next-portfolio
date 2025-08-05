@@ -3,7 +3,7 @@
 import { Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-import { SkeletonLoader } from '../skeletonLoader/SkeletonLoader'
+import { SkeletonLoader } from '../skeleton-loader/skeleton-loader'
 
 import { setServerTheme } from '@/server-actions/theme-action/themeAction'
 
