@@ -3,7 +3,10 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
 	/* config options here */
 	// postcss: './postcss.config.next.mjs',
-	output: 'export',
+	// output: 'export',
+	// experimental: {
+	// 	ppr: 'incremental'
+	// },
 	images: {
 		remotePatterns: [
 			{
