@@ -6,7 +6,7 @@ export function useActiveSectionByIntersection(sectionIds: string[]) {
 	const [activeId, setActiveId] = useState<string | null>(null)
 
 	useEffect(() => {
-		// Map for store statr
+		// Map for store state
 		const intersectionStates = new Map<string, boolean>()
 
 		const handleIntersect: IntersectionObserverCallback = entries => {

@@ -109,7 +109,7 @@ export const LATEST_PORTFOLIO_ITEMS =
 
 // cases by category for listing
 export const PORTFOLIO_CASES_BY_CATEGORY =
-	defineQuery(`*[_type == "portfolioCase" && caseCategory == $category] | order(order asc) {
+	defineQuery(`*[_type == "portfolioCase" && caseCategory == $category] | order(order desc) {
   _id,
   caseTitle,
   caseDescription,
