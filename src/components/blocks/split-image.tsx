@@ -12,10 +12,10 @@ type SplitImageProps = Extract<
 export function SplitImage({ text, image, orientation }: SplitImageProps) {
 	return (
 		<div
-			className="flex items-top gap-[1rem] data-[orientation='imageRight']:flex-row-reverse text-balance mb-[4rem]"
+			className="flex items-top gap-[2rem] data-[orientation='imageRight']:flex-row-reverse text-balance mb-[4rem]"
 			data-orientation={stegaClean(orientation) || 'imageLeft'}
 		>
-			<div className='relative aspect-[16/9] h-full w-[40%] max-md:hidden'>
+			<div className='relative aspect-[16/9] h-full w-[50%] max-md:hidden'>
 				{image?.asset?.url ? (
 					<Image
 						src={urlFor(image).url()}
@@ -25,7 +25,7 @@ export function SplitImage({ text, image, orientation }: SplitImageProps) {
 					/>
 				) : null}
 			</div>
-			<div className='w-[60%] max-md:w-full text-2xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] sanity-block'>
+			<div className='w-[50%] max-md:w-full text-2xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] sanity-block'>
 				{text ? <PortableText value={text} /> : null}
 			</div>
 		</div>
