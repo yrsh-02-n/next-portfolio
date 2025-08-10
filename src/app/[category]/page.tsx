@@ -98,7 +98,7 @@ export default function Page() {
 					className='mb-[5rem]'
 				>
 					<div
-						className={`grid grid-cols-5 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[2.5rem]`}
+						className={`grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[2.5rem]`}
 					>
 						{cases.map(item => (
 							<CaseCard
@@ -113,7 +113,7 @@ export default function Page() {
 					</div>
 				</m.div>
 			) : (
-				<div className='grid grid-cols-5 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[2.5rem]'>
+				<div className='grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[2.5rem]'>
 					<SkeletonLoader
 						count={loaderItemsCount}
 						className='h-[24rem]'

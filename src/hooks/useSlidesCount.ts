@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 
 export const useSlidesCount = () => {
-	const [slidesCount, setSlidesCount] = useState<number>(5)
+	const [slidesCount, setSlidesCount] = useState<number>(4)
 	const windowSize = useWindowSize()
 
 	useEffect(() => {
@@ -14,7 +14,7 @@ export const useSlidesCount = () => {
 			} else if (windowSize.width < 1460) {
 				setSlidesCount(3)
 			} else {
-				setSlidesCount(5)
+				setSlidesCount(4)
 			}
 		}
 	}, [windowSize.width])
