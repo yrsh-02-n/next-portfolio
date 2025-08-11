@@ -61,7 +61,7 @@ export function Resume() {
 								source={age}
 							/>
 							<ResumeItem
-								title='Желаемая дожность'
+								title='Желаемая должность'
 								source={data?.goal}
 							/>
 							<ResumeItem
