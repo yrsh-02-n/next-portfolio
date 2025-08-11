@@ -55,7 +55,7 @@ export function Resume() {
 			) : (
 				<div>
 					<div className='flex mb-[2rem] gap-[2rem] max-[1060px]:flex-wrap'>
-						<ResumeItemWrapper className='flex w-fit gap-[2rem] shrink-0 max-xl:flex-wrap max-xl:shrink-1 max-[1060px]:w-full'>
+						<ResumeItemWrapper className='flex w-fit gap-[4rem] shrink-0 max-xl:flex-wrap max-xl:shrink-1 max-[1060px]:w-full max-[1060px]:gap-[2rem]'>
 							<ResumeItem
 								title='Возраст'
 								source={age}
@@ -70,8 +70,11 @@ export function Resume() {
 							/>
 						</ResumeItemWrapper>
 
-						<ResumeItemWrapper className='flex gap-[2rem] w-full max-xl:w-auto max-[1060px]:min-w-full'>
-							<ResumeListItem title={'Стек'}>
+						<ResumeItemWrapper className='flex gap-[2rem] w-full max-[1060px]:min-w-full'>
+							<ResumeListItem
+								title={'Стек'}
+								className='flex-wrap'
+							>
 								{data?.stack?.map((item, index) => (
 									<ResumeItemText key={index}>{item.stackItem}</ResumeItemText>
 								))}
@@ -112,7 +115,7 @@ export function Resume() {
 							</ResumeTimeline>
 						</ResumeItemWrapper>
 
-						<ResumeItemWrapper className='text-lg w-full max-xl:w-2/3 max-md:w-full'>
+						<ResumeItemWrapper className='text-lg w-full max-xl:w-2/3 max-md:w-full sanity-block'>
 							{data?.about ? <PortableText value={data?.about} /> : null}
 						</ResumeItemWrapper>
 					</div>

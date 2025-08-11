@@ -75,7 +75,7 @@ export function LastTenCases() {
 						</Slider>
 					</div>
 				) : (
-					<div className='grid grid-cols-5 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[3rem]'>
+					<div className='grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-[3rem]'>
 						<SkeletonLoader
 							count={loaderItemsCount}
 							className='h-[18rem]'
