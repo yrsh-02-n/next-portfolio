@@ -8,7 +8,7 @@ type textOnlyBlock = Extract<
 
 export function TextOnlyBlock({ text }: textOnlyBlock) {
 	return (
-		<div className='text-2xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] w-full sanity-block mb-[4rem]'>
+		<div className='text-xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] w-full sanity-block mb-[4rem]'>
 			{text ? <PortableText value={text} /> : null}
 		</div>
 	)

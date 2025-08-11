@@ -19,13 +19,13 @@ export function SplitImage({ text, image, orientation }: SplitImageProps) {
 				{image?.asset?.url ? (
 					<Image
 						src={urlFor(image).url()}
-						alt=''
+						alt='Мокап проекта'
 						fill
 						className='object-contain'
 					/>
 				) : null}
 			</div>
-			<div className='w-[50%] max-md:w-full text-2xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] sanity-block max-md:order-1'>
+			<div className='w-[50%] max-md:w-full text-xl max-xl:text-xl max-md:text-lg text-primary flex flex-col gap-[1rem] sanity-block max-md:order-1'>
 				{text ? <PortableText value={text} /> : null}
 			</div>
 		</div>

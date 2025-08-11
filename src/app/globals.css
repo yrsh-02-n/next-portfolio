@@ -205,8 +205,16 @@ h6 {
 	padding-left: 20px !important;
 }
 
+.sanity-block li:not(:last-child) {
+	margin-bottom: 10px !important;
+}
+
 li {
 	list-style: square;
+}
+
+li::marker {
+  color: var(--accent);
 }
 
 /* Swiper slider */
