@@ -7,5 +7,5 @@ export interface IResumeItemTextProps {
 }
 
 export function ResumeItemText({ children, className }: IResumeItemTextProps) {
-	return <p className={cn('text-lg leading-5', className)}>{children}</p>
+	return <p className={cn('text-lg leading-6', className)}>{children}</p>
 }
