@@ -30,7 +30,7 @@ export function CaseCard({
 					alt={`Проект ${caseTitle}`}
 					width={1920}
 					height={1080}
-					className='max-w-full max-h-full object-contain'
+					className='object-contain'
 				/>
 			</Link>
 			<div className='flex flex-col p-5 h-full'>
