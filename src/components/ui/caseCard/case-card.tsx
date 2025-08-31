@@ -5,9 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Button } from '../button/Button'
+
 import { IPortfolioCase } from '@/types/portfolioCase'
-
-
 
 export function CaseCard({
 	slug,
@@ -23,7 +22,7 @@ export function CaseCard({
 		<div className='relative flex flex-col flex-1 h-full max-w-full bg-secondary/90 shadow border-b border-accent'>
 			<Link
 				href={`/${caseCategory}/${slug?.current}`}
-				className={cn('bg-white aspect-[16/9]')}
+				className={cn('bg-white aspect-[4/3]')}
 			>
 				<Image
 					src={imageUrl}
@@ -37,7 +36,7 @@ export function CaseCard({
 				<div className='mb-[1.5rem]'>
 					<Link
 						href={`/${caseCategory}/${slug?.current}`}
-						className={cn('bg-white aspect-[16/9]')}
+						className={cn('bg-white aspect-[4/3]]')}
 					>
 						<h3 className='text-2xl max-xl:text-xl font-md text-light leading-[1.2] mb-[1rem] line-clamp-2'>
 							{caseTitle}
