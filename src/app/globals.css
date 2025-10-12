@@ -183,8 +183,8 @@ button {
 }
 
 .sanity-block a {
-  color: var(--accent);
-  border-bottom: 1px solid var(--accent);
+	color: var(--accent);
+	border-bottom: 1px solid var(--accent);
 }
 
 p,
@@ -198,10 +198,11 @@ h6 {
 }
 
 .sanity-block {
-  text-wrap: balance;
+	text-wrap: balance;
 }
 
-.sanity-block ul {
+.sanity-block ul,
+.sanity-block ol {
 	padding-left: 20px !important;
 }
 
@@ -214,7 +215,7 @@ li {
 }
 
 li::marker {
-  color: var(--accent);
+	color: var(--accent);
 }
 
 /* Swiper slider */
