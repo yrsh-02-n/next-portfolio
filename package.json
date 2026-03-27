@@ -34,18 +34,17 @@
     "usehooks-ts": "^3.1.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@eslint/eslintrc": "^3.0.0",
+    "@tailwindcss/postcss": "^4.0.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "dotenv-cli": "^8.0.0",
     "env-cmd": "^10.1.0",
-    "eslint": "^9",
+    "eslint": "^9.0.0",
     "eslint-config-next": "15.4.1",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  },
-  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
 }
