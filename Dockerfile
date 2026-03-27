@@ -1,11 +1,13 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
 # package files
 COPY package*.json ./
 
-# install
+# clean npm cache and install fresh
+RUN npm cache clean --force || true
+RUN rm -rf node_modules
 RUN npm install
 
 # other files
