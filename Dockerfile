@@ -13,6 +13,12 @@ RUN npm install
 # other files
 COPY . .
 
+# env variables for build
+ARG SANITY_STUDIO_PROJECT_ID
+ARG SANITY_STUDIO_DATASET
+ENV SANITY_STUDIO_PROJECT_ID=${SANITY_STUDIO_PROJECT_ID}
+ENV SANITY_STUDIO_DATASET=${SANITY_STUDIO_DATASET}
+
 # production build
 RUN npm run build
 
