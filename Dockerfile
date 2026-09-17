@@ -1,32 +1,38 @@
-FROM node:20-alpine
-
+FROM node:22-alpine AS base
 WORKDIR /app
 
-# package files
+RUN apk add --no-cache libc6-compat wget
+
+FROM base AS deps
 COPY package*.json ./
+RUN npm ci
 
-# clean npm cache and install fresh
-RUN npm cache clean --force || true
-RUN rm -rf node_modules
-RUN npm install
-
-# other files
+FROM base AS builder
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# env variables for build
 ARG SANITY_STUDIO_PROJECT_ID
 ARG SANITY_STUDIO_DATASET
 ENV SANITY_STUDIO_PROJECT_ID=${SANITY_STUDIO_PROJECT_ID}
 ENV SANITY_STUDIO_DATASET=${SANITY_STUDIO_DATASET}
 
-# production build
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-# delete devDeps
-RUN npm prune --production
+FROM base AS runner
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV HOSTNAME="0.0.0.0"
+ENV PORT=3000
 
-# open port
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+
 EXPOSE 3000
 
-# run app
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD wget -q --spider http://localhost:3000/ || exit 1
+
 CMD ["npm", "start"]
