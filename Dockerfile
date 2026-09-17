@@ -1,12 +1,14 @@
-FROM node:22-alpine AS base
+FROM oven/bun:1-alpine AS base
 WORKDIR /app
 
-RUN apk add --no-cache libc6-compat wget
+RUN apk add --no-cache wget
 
+# ---------- deps ----------
 FROM base AS deps
-COPY package*.json ./
-RUN npm ci
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 
+# ---------- builder ----------
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -17,8 +19,9 @@ ENV SANITY_STUDIO_PROJECT_ID=${SANITY_STUDIO_PROJECT_ID}
 ENV SANITY_STUDIO_DATASET=${SANITY_STUDIO_DATASET}
 
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build
+RUN bun run build
 
+# ---------- runner ----------
 FROM base AS runner
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -35,4 +38,4 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
   CMD wget -q --spider http://localhost:3000/ || exit 1
 
-CMD ["npm", "start"]
+CMD ["bun", "run", "start"]
