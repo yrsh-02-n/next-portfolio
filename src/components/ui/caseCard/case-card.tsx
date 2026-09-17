@@ -1,21 +1,12 @@
-'use client';
+'use client'
 
-import cn from 'clsx';
-// import Image from 'next/image'
-import { Image } from 'next-sanity/image';
-import Link from 'next/link';
+import cn from 'clsx'
+import Image from 'next/image'
+import Link from 'next/link'
 
+import { Button } from '../button/Button'
 
-
-import { Button } from '../button/Button';
-
-
-
-import { IPortfolioCase } from '@/types/portfolioCase';
-
-
-
-
+import { IPortfolioCase } from '@/types/portfolioCase'
 
 export function CaseCard({
 	slug,
