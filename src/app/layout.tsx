@@ -17,8 +17,8 @@ const tektur = Tektur({
 })
 
 export const metadata: Metadata = {
-	title: 'Портфолио frontend-разработчика',
-	description: 'Портфолио frontend-разработчика'
+	title: 'Портфолио разработчика',
+	description: 'Портфолио разработчика'
 }
 
 export default async function RootLayout({

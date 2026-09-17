@@ -11,9 +11,9 @@ export const HEADER_DATA: IMenuItem[] = [
 		title: 'О моем опыте'
 	},
 	{
-		label: 'frontend-разработчик',
+		label: 'разработчик',
 		link: PAGE.PORTFOLIO_DEV,
-		title: 'Портфолио: frontend-разработка',
+		title: 'Портфолио: разработка',
 		icon: Code
 	},
 	{

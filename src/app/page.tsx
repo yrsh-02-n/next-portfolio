@@ -5,8 +5,8 @@ import { DynamicLastTenCases } from '../components/lastTenCases/dynamic-last-ten
 import { DynamicResume } from '../components/resume/dynamic-resume'
 
 export const metadata: Metadata = {
-	title: 'Кирилл Л. | Frontend-разработчик',
-	description: 'Портфолио frontend-разработчика и web-дизайнера Кирилла Л.',
+	title: 'Кирилл Л. | Разработчик и веб-дизайнер',
+	description: 'Портфолио разработчика и web-дизайнера Кирилла Л.',
 	keywords: [
 		'Next.js',
 		'Некст',
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
 	creator: 'Кирилл Л.',
 	publisher: 'Кирилл Л.',
 	openGraph: {
-		title: 'Кирилл Л. | Frontend-разработчик',
-		description: 'Портфолио frontend-разработчика и web-дизайнера Кирилла Л.',
+		title: 'Кирилл Л. | Разработчик',
+		description: 'Портфолио разработчика и web-дизайнера Кирилла Л.',
 		url: 'https://yrshdev.ru',
-		siteName: 'Портфолио frontend-разработичика и web-дизайнера Кирилла Л.',
+		siteName: 'Портфолио разработичика и web-дизайнера Кирилла Л.',
 		images: [
 			{
 				url: 'https://yrshdev.ru/og-image.jpg',
 				width: 1200,
 				height: 630,
-				alt: 'Портфолио frontend-разработичика и web-дизайнера Кирилла Л.'
+				alt: 'Портфолио разработичика и web-дизайнера Кирилла Л.'
 			}
 		],
 		locale: 'ru_RU',
