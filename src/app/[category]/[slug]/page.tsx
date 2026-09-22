@@ -74,7 +74,7 @@ export default async function Page({
 			label:
 				resolvedParams.category === 'design'
 					? 'Портфолио: web-дизайн'
-					: 'Портфолио: frontend-разработка',
+					: 'Портфолио: разработка',
 			href: `/${resolvedParams.category}`
 		},
 		{ label: page.caseTitle || 'Неивзестный путь', isCurrent: true }
