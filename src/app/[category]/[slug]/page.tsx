@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { Suspense } from 'react'
+import { type ComponentProps, Suspense } from 'react'
 
 import { PageBuilder } from '@/components/page-builder'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs/Breadcrumbs'
@@ -9,16 +9,28 @@ import { client } from '@/sanity/client'
 import { sanityFetch } from '@/sanity/lib/live'
 import { PORTFOLIO_CASE_PAGE_BY_CATEGORY } from '@/sanity/lib/queries'
 
+interface SlugItem {
+	slug: {
+		current: string
+	}
+}
+
+interface PortfolioCasePageData {
+	caseTitle?: string | null
+	caseCategory?: 'design' | 'dev' | string | null
+	content?: ComponentProps<typeof PageBuilder>['content'] | null
+}
+
 // SSG
 export async function generateStaticParams() {
 	// get cases
 	const [designCases, devCases] = await Promise.all([
-		client.fetch(
+		client.fetch<SlugItem[]>(
 			`*[_type == "portfolioCase" && caseCategory == "design" && defined(slug.current)]{
         slug
       }`
 		),
-		client.fetch(
+		client.fetch<SlugItem[]>(
 			`*[_type == "portfolioCase" && caseCategory == "development" && defined(slug.current)]{
         slug
       }`
@@ -26,13 +38,13 @@ export async function generateStaticParams() {
 	])
 
 	// design paths
-	const designParams = designCases.map((item: any) => ({
+	const designParams = designCases.map((item) => ({
 		category: 'design',
 		slug: item.slug.current
 	}))
 
 	// dev paths
-	const devParams = devCases.map((item: any) => ({
+	const devParams = devCases.map((item) => ({
 		category: 'dev',
 		slug: item.slug.current
 	}))
@@ -54,13 +66,13 @@ export default async function Page({
 		notFound()
 	}
 
-	const { data: page } = await sanityFetch({
+	const { data: page } = (await sanityFetch({
 		query: PORTFOLIO_CASE_PAGE_BY_CATEGORY,
 		params: {
 			slug: resolvedParams.slug,
 			category: resolvedParams.category
 		}
-	})
+	})) as { data: PortfolioCasePageData | null }
 
 	// check case exists
 	if (!page || page.caseCategory !== resolvedParams.category) {
