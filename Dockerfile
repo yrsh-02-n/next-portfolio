@@ -31,6 +31,9 @@ ENV HOSTNAME="0.0.0.0"
 ENV PORT=3000
 ENV NODE_OPTIONS="--max-old-space-size=1024"
 
+# Создаем папку .next и выдаем права пользователю node для ISR-кэша
+RUN mkdir -p .next && chown -R node:node /app
+
 COPY --from=builder --chown=node:node /app/public ./public
 COPY --from=builder --chown=node:node /app/.next/standalone ./
 COPY --from=builder --chown=node:node /app/.next/static ./.next/static
@@ -38,8 +41,5 @@ COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 USER node
 
 EXPOSE 3000
-
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD node -e "fetch('http://127.0.0').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
 
 CMD ["node", "server.js"]
